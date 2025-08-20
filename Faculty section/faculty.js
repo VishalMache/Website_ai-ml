@@ -10,16 +10,16 @@ const facultyData = [
     website: "https://vijaypatil.edu"
   },
   {
-    name: "Dr. R. G. Biradar",
-    role: "Director, Outreach & Admissions and HOD",
+    name: "Dr. Rahul Ganpatrao Sonkamble",
+    role: "Assistant Professor",
     school: "School of Engineering & Technology",
-    image: "faculty2.jpg",
+    image: "file:///D:/VM's%20PROJECT/Project/Website_ai-ml/AI&ML%20Faculty[1]/AI&ML%20Faculty/Rahul%20Sonkamble.png",
     description: "Dr. R. G. Biradar serves as the Head of Department with expertise in Machine Learning and Internet of Things (IoT). He has led numerous research projects funded by government agencies and has mentored over 100 graduate students. His work focuses on practical applications of AI in industrial settings.",
     linkedin: "https://linkedin.com/in/rg-biradar",
     website: "https://rgbiradar.com"
   },
   {
-    name: "Dr. Yudhishthir Raut",
+    name: "Ms. Rupali Samarth Zambre",
     role: "Assistant Professor",
     school: "School of Engineering & Technology", 
     image: "faculty3.jpg",
