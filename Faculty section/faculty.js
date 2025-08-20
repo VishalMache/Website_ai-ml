@@ -6,7 +6,7 @@ const facultyData = [
         school: "School of Engineering & Technology",
         image: "file:///D:/VM's%20PROJECT/Project/Website_ai-ml/AI&ML%20Faculty[1]/AI&ML%20Faculty/Swati%20Shirke.png",
         description: "My name is Dr.Swati Shirke-Deshumukh. I have 16.5 years of experience in academics and professional practice. My research domain is AI & ML, where I focus on exploring innovative approaches and practical applications. I am passionate about contributing to knowledge, fostering learning, and advancing technology. Thank you for your attention.",
-        linkedin: "https://linkedin.com/in/swatideshmukh",
+        linkedin: "https://www.linkedin.com/in/dr-swati-shirke-deshmukh-a870792b7/",
         website: "https://swatideshmukh.edu",
         scholar: "https://scholar.google.com/citations?user=swatideshmukh"
     },
@@ -16,6 +16,7 @@ const facultyData = [
         school: "School of Engineering & Technology",
         image: "file:///D:/VM's%20PROJECT/Project/Website_ai-ml/AI&ML%20Faculty[1]/AI&ML%20Faculty/Rahul%20Sonkamble.png",
         description: "My name is Dr. Rahul Ganpatrao Sonkamble. I have 12 years of experience in academics and professional practice. My research domain is Blockchain, Cyber Security, Computer Networks, and Machine Learning, where I focus on exploring innovative approaches and practical applications. I am passionate about contributing to knowledge, fostering learning, and advancing technology. Thank you for your attention.",
+        linkedin:"https://www.linkedin.com/in/dr-rahul-sonkamble-029a7130/",
         website: "https://rgbiradar.com",
         scholar: "https://scholar.google.com/citations?user=rgbiradar"
     },
@@ -25,7 +26,7 @@ const facultyData = [
         school: "School of Engineering & Technology",
         image: "file:///D:/VM's%20PROJECT/Project/Website_ai-ml/AI&ML%20Faculty[1]/AI&ML%20Faculty/Dr.Yudhishthir%20Raut.png",
         description: " My name is Dr Yudhishthir Raut. I have 20 years of teaching and 2 years of Industrial experience. My research domain is AI, ML, Data Science, Signal image and video processing, where I focus on exploring innovative approaches and practical applications. I am passionate about contributing to knowledge, fostering learning, and advancing technology. Thank you for your attention.",
-        linkedin: "https://linkedin.com/in/yudhishthirraut",
+        linkedin: "https://www.linkedin.com/in/dr-yudhishthir-raut-a4336524/",
         website: "https://yudhishthirraut.net",
         scholar: "https://scholar.google.com/citations?user=yudhishthirraut"
     },
@@ -55,7 +56,7 @@ const facultyData = [
         school: "School of Electronics",
         image: "file:///D:/VM's%20PROJECT/Project/Website_ai-ml/AI&ML%20Faculty[1]/AI&ML%20Faculty/Vaibhavi%20Avachat.jpg",
         description: "My name is Vaibhavi Umesh Avachat. I have 2.8+ years of experience in academics and professional practice. My research domain is Machine Learning, Programming Languages, where I focus on exploring innovative approaches and practical applications. I am passionate about contributing to knowledge, fostering learning, and advancing technology. Thank you for your attention.",
-        linkedin: "https://linkedin.com/in/meerarao",
+        linkedin: "https://www.linkedin.com/in/vaibhavi-avachat-b56a4612a/",
         website: "https://meerarao.electronics",
         scholar: "https://scholar.google.com/citations?user=meerarao"
     },
@@ -95,7 +96,7 @@ const facultyData = [
         school: "School of Mathematics",
         image: "file:///D:/VM's%20PROJECT/Project/Website_ai-ml/AI&ML%20Faculty[1]/AI&ML%20Faculty/Moreshwar%20Mahale.jpg",
         description: "My name is Moreshwar A. Mahale. I am a Fresher in academics and professional practice. My research domain is Image Processing, Machine Learning, and Precision Farming, where I focus on exploring innovative approaches and practical applications. I am passionate about contributing to knowledge, fostering learning, and advancing technology. Thank you for your attention.",
-        linkedin: "https://linkedin.com/in/rahulpatankar",
+        linkedin: "https://www.linkedin.com/in/moreshwar-mahale-34b50321b/",
         website: "https://rahulpatankar.math",
         scholar: "https://scholar.google.com/citations?user=rahulpatankar"
     }
