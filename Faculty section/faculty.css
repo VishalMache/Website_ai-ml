@@ -35,7 +35,6 @@ body {
     height: 110px;
     border-radius: 50%;
     margin-bottom: 10px;
-    border: 4px solid #564b57;
     background: #fff;
     object-fit: cover;
 }
@@ -328,4 +327,3 @@ body {
     width: 100%;
     height: 300px;
     overflow: hidden;
-}
