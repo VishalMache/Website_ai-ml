@@ -1,0 +1,44 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h2 {
+  color: #941c34 inset;
+  font-weight: 700;
+}
+
+.club-img-wrap {
+  overflow: hidden;
+}
+
+.club-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 0.25rem 0.25rem 0 0;
+}
+
+.club-card:hover .club-img,
+.club-card:focus-within .club-img {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-title {
+  font-weight: 600;
+}
+
+.btn-primary {
+  background-color: #941c34;
+  border-color: #941c34;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.show > .btn-primary.dropdown-toggle {
+  background-color: #6e151f;
+  border-color: #6e151f;
+}

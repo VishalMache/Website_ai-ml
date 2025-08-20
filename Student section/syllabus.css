@@ -1,0 +1,59 @@
+/* Custom Styling for Syllabus Page */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+.navbar-brand {
+      height: 100px;
+      width: 180px;
+    }
+
+h2 {
+  color: white;
+  font-weight: bold;
+}
+
+.accordion-button {
+  font-weight: 600;
+}
+
+footer {
+  margin-top: 50px;
+}
+.btn-primary {
+  background-color: #941c34;
+  border-color: #941c34;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.show > .btn-primary.dropdown-toggle {
+  background-color: #6e151f;
+  border-color: #6e151f;
+}
+.accordion-button {
+  border-bottom: 2px solid transparent; /* Default hidden */
+  box-shadow: none;
+}
+
+.accordion-button:focus,
+.accordion-button:hover {
+  border-color: #941c34;
+  box-shadow: 0 2px 0 0 #941c34 inset;
+  outline: none;
+}
+
+.accordion-button:not(.collapsed) {
+  color: #941c34;
+  background-color: rgba(148, 28, 52, 0.2);      /* or any bg you wish */
+  border-color: #941c34;
+  box-shadow: 0 2px 0 0 #941c34 inset;
+}
+
+.accordion-button:after {
+  background-image: none !important;
+}
+
