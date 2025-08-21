@@ -1,57 +1,16 @@
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+      background: #f8fafb;
+      font-family: 'Roboto', sans-serif;
+    }
 
-h2 {
-  color: #941c34 inset;
-  font-weight: 700;
-}
-
-.club-img-wrap {
-  overflow: hidden;
-}
-
-.club-img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border-radius: 0.25rem 0.25rem 0 0;
-}
-
-.club-card:hover .club-img,
-.club-card:focus-within .club-img {
-  transform: scale(1.05);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-}
-
-.card-title {
-  font-weight: 600;
-}
-
-.btn-primary {
-  background-color: #941c34;
-  border-color: #941c34;
-}
-
-.btn-primary:hover,
-.btn-primary:focus,
-.btn-primary:active,
-.btn-primary.active,
-.show > .btn-primary.dropdown-toggle {
-  background-color: #6e151f;
-  border-color: #6e151f;
-}
 .navbar {
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
       transition: background-color 0.3s ease;
 }
-
 .navbar-nav .nav-link {
       font-weight: 500;
       transition: color 0.3s ease;
 }
-    
 .navbar-nav .nav-link:hover {
       color: #941C34;
 }
@@ -60,15 +19,54 @@ h2 {
       height: 100px; 
       width:180px;
 }
+    
+.bg-custom{
+      background-color: #941C34;
+}
+
+.category-card {
+      cursor: pointer;
+      transition: transform 0.2s;
+}
+
+.category-card:hover {
+      transform: translateY(-5px) scale(1.03);
+      box-shadow: 0 4px 12px rgba(60, 98, 255, 0.12);
+}
+    
+
+.timeline-dot {
+      width: 16px;
+      height: 16px;
+      background: #941C34;
+      border-radius: 50%;
+      display: inline-block;
+      position: relative;
+      top: 2px;
+}
+
+.text-custom{
+      color: #941C34
+}
+
+.btn-custom-red {
+      border-color: #941C34;
+      color: #941C34;
+}
+.btn-custom-red:hover {
+      background-color: #941C34;
+      color: #fff;
+}
+
 footer {
       background: #941C34;
-    }
-    .footer-link {
+}
+.footer-link {
       color: #ddd;
       text-decoration: none;
       position: relative;
       transition: all 0.3s ease;
-    }
+}
     .footer-link::after {
       content: '';
       width: 0;
@@ -78,10 +76,10 @@ footer {
       left: 0;
       bottom: -3px;
       transition: width 0.3s ease;
-    }
+}
     .footer-link:hover {
       color: #ffd700;
-    }
+}
     .footer-link:hover::after {
       width: 100%;
-    }
+}
