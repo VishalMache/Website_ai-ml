@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>PCU | Student Corner | Clubs</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="clubs.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg bg-light sticky-top">
+  <div class="container-fluid">
+    <a href="homepage.html">
+    <img class="navbar-brand" src="Pcu Thumbnail/Pcu Thumbnail/PCU_logo_152d67d738.png" alt="PCU Logo">
+    </a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="homepage.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Faculty Profile</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Student Corner</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Syllabus</a></li>
+            <li><a class="dropdown-item" href="#">Professional Chapters</a></li>
+            <li><a class="dropdown-item" href="clubs.html">Clubs</a></li>
+            <li><a class="dropdown-item" href="workshops.html">Workshops</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="#">Activities</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Student Satisfaction</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<br>
+
+<!-- Banner Section -->
+<section class="jumbotron text-center bg-custom text-white py-5 mb-0">
+  <div class="container">
+    <h1 class="display-5 fw-bold">Discover Your Club!</h1>
+    <p class="lead mb-4">Find, join, and connect with student clubs across campus.</p>
+  </div>
+</section>
+
+
+  <!-- Clubs -->
+<section class="container mt-5" id="clubs">
+  <h2 class="mb-4 text-center">All Clubs</h2>
+  <div class="row g-4" id="clubsContainer"></div>
+</section>
+
+<!-- Upcoming Events Timeline -->
+<section class="container mt-5" id="events">
+  <h2 class="mb-4 text-center">Top Events</h2>
+  <ul class="list-group list-group-flush" id="eventsList"></ul>
+</section>
+
+<!-- Announcement Banner -->
+<section class="container mt-5">
+  <div class="alert alert-warning d-flex align-items-center" role="alert">
+    <i class="bi bi-megaphone-fill fs-4 me-2"></i>
+    <div>
+      <strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, veritatis.</strong> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime, temporibus.
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="container-fluid text-white w-100 py-5 mt-5">
+  <div class="container">
+    <div class="row text-center text-md-start">
+      <div class="col-md-4 mb-4">
+        <h5 class="fw-bold mb-3">Connect With Us At</h5>
+        <p><i class="bi bi-geo-alt-fill me-2"></i> Gut No. 44, 46, 48, 49 and 50,<br>Sate, Maval<br>(PMRDA) Dist. Pune-412106,Maharashtra, India.</p>
+        <a href="https://www.google.com/maps/place/Pimpri+Chinchwad+University/@18.7486731,73.6048451,17z/data=!3m1!4b1!4m6!3m5!1s0x3bc2addaeb41d919:0xcc551cf73e3bdf1c!8m2!3d18.748668!4d73.60742!16s%2Fg%2F11pv9g71ty?entry=ttu&g_ep=EgoyMDI1MDgxNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="footer-link">Visit Us on Google Maps</a>
+      </div>
+      <div class="col-md-4 mb-4">
+        <h5 class="fw-bold mb-3">Contact</h5>
+        <p><i class="bi bi-envelope-fill me-2"></i> pccoeadmin@gmail.com</p>
+      </div>
+      <div class="col-md-4 mb-4">
+        <h5 class="fw-bold mb-3">Important Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="#" class="footer-link">About PCET & PCU</a></li>
+          <li><a href="#" class="footer-link">Academics</a></li>
+          <li><a href="#" class="footer-link">Hostel</a></li>
+          <li><a href="#" class="footer-link">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Club Detail Modal -->
+<div class="modal fade" id="clubModal" tabindex="-1" aria-labelledby="clubModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="clubModalLabel">Club Name</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="clubModalBody"></div>
+      </div>
+    </div>
+</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="clubs.js"></script>
+</body>
+</html>
