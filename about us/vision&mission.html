@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vision & Mission - CSE AI & ML | PCU</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@400;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.6;
+      background: linear-gradient(135deg, #f7f9fc 0%, #fff0f6 100%);
+      overflow-x: hidden;
+    }
+
+    /* Enhanced floating particles */
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .particle {
+      position: absolute;
+      display: block;
+      pointer-events: none;
+      border-radius: 50%;
+      animation: float 12s infinite linear;
+    }
+
+    .particle.type1 {
+      width: 5px;
+      height: 5px;
+      background: rgba(148, 28, 52, 0.12);
+    }
+
+    .particle.type2 {
+      width: 3px;
+      height: 3px;
+      background: rgba(194, 61, 80, 0.10);
+    }
+
+    .particle.type3 {
+      width: 7px;
+      height: 7px;
+      background: rgba(148, 28, 52, 0.06);
+    }
+
+    @keyframes float {
+      0% {
+        opacity: 1;
+        transform: translateY(100vh) scale(0) rotate(0deg);
+      }
+      10% {
+        opacity: 1;
+        transform: translateY(90vh) scale(1) rotate(45deg);
+      }
+      90% {
+        opacity: 1;
+        transform: translateY(10vh) scale(1) rotate(315deg);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-10vh) scale(0) rotate(360deg);
+      }
+    }
+
+    .scroll-indicator {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: rgba(148, 28, 52, 0.1);
+      z-index: 1000;
+    }
+
+    .scroll-progress {
+      height: 100%;
+      background: linear-gradient(90deg, #941C34, #c23d50, #941C34);
+      background-size: 200% 100%;
+      width: 0%;
+      transition: width 0.1s ease;
+      animation: shimmer 2s infinite;
+    }
+
+    @keyframes shimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+
+    .hero-section {
+      background: linear-gradient(135deg, #941C34, #c23d50, #d45087);
+      color: white;
+      padding: 100px 0;
+      position: relative;
+      overflow: hidden;
+      z-index: 2;
+    }
+
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(circle at 30% 40%, rgba(255,255,255,0.1) 0%, transparent 50%),
+        radial-gradient(circle at 70% 70%, rgba(255,255,255,0.08) 0%, transparent 50%);
+      animation: heroFloat 8s ease-in-out infinite;
+    }
+
+    @keyframes heroFloat {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-15px) rotate(2deg); }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .page-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 4rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+      background: linear-gradient(45deg, #fff, #f0f8ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .page-subtitle {
+      color: rgba(255, 255, 255, 0.95);
+      font-weight: 500;
+      font-size: 1.3rem;
+      text-align: center;
+      margin-top: 15px;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+    }
+
+    .breadcrumb-custom {
+      background: rgba(255,255,255,0.15);
+      border-radius: 50px;
+      padding: 12px 24px;
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .breadcrumb-custom a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    .breadcrumb-custom a:hover {
+      color: white;
+      text-shadow: 0 0 10px rgba(255,255,255,0.5);
+    }
+
+    .content-container {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 25px;
+      box-shadow: 
+        0 25px 80px rgba(148, 28, 52, 0.15),
+        0 0 0 1px rgba(148, 28, 52, 0.05);
+      padding: 60px;
+      margin: -100px auto 60px;
+      position: relative;
+      z-index: 10;
+      max-width: 1400px;
+      overflow: hidden;
+    }
+
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      color: #941C34;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 35px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      left: 0;
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(135deg, #941C34, #c23d50);
+      border-radius: 3px;
+    }
+
+    .vision-mission-cards {
+      display: flex;
+      gap: 30px;
+      margin-bottom: 60px;
+    }
+
+    .vision-card, .mission-card {
+      flex: 1;
+      background: linear-gradient(135deg, rgba(148, 28, 52, 0.05), rgba(194, 61, 80, 0.03));
+      border-radius: 20px;
+      padding: 40px;
+      border-left: 5px solid;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .vision-card {
+      border-left-color: #941C34;
+    }
+
+    .mission-card {
+      border-left-color: #c23d50;
+    }
+
+    .vision-card:hover, .mission-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(148, 28, 52, 0.15);
+    }
+
+    .card-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #941C34;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .card-icon {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #941C34, #c23d50);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.5rem;
+    }
+
+    .content-text {
+      font-size: 1.1rem;
+      color: #333;
+      line-height: 1.8;
+      text-align: justify;
+    }
+
+    .mission-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .mission-list li {
+      padding: 10px 0;
+      position: relative;
+      padding-left: 30px;
+      margin-bottom: 10px;
+    }
+
+    .mission-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: #941C34;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    .outcome-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .outcome-card {
+      background: linear-gradient(135deg, #ffffff, #f8f9fa);
+      border: 2px solid rgba(148, 28, 52, 0.1);
+      border-radius: 15px;
+      padding: 30px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .outcome-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(148, 28, 52, 0.02), transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .outcome-card:hover {
+      border-color: rgba(148, 28, 52, 0.3);
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(148, 28, 52, 0.1);
+    }
+
+    .outcome-card:hover::before {
+      opacity: 1;
+    }
+
+    .outcome-number {
+      background: linear-gradient(135deg, #941C34, #c23d50);
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      margin-bottom: 15px;
+      font-size: 1.1rem;
+    }
+
+    .outcome-title {
+      font-weight: 700;
+      color: #941C34;
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+    }
+
+    .outcome-description {
+      color: #555;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .peo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .peo-card {
+      background: linear-gradient(135deg, rgba(148, 28, 52, 0.05), rgba(194, 61, 80, 0.03));
+      border-radius: 15px;
+      padding: 30px;
+      border-left: 4px solid #941C34;
+      transition: all 0.3s ease;
+    }
+
+    .peo-card:hover {
+      transform: translateX(10px);
+      box-shadow: 0 10px 30px rgba(148, 28, 52, 0.15);
+    }
+
+    .peo-number {
+      background: #941C34;
+      color: white;
+      width: 35px;
+      height: 35px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .career-section {
+      background: linear-gradient(135deg, #f8f9fa, #ffffff);
+      border-radius: 20px;
+      padding: 40px;
+      margin-top: 40px;
+      border: 2px solid rgba(148, 28, 52, 0.1);
+    }
+
+    .career-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .career-category {
+      background: white;
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+      border-top: 4px solid;
+    }
+
+    .career-category.technical {
+      border-top-color: #941C34;
+    }
+
+    .career-category.interdisciplinary {
+      border-top-color: #c23d50;
+    }
+
+    .career-category.business {
+      border-top-color: #d45087;
+    }
+
+    .career-category.research {
+      border-top-color: #941C34;
+    }
+
+    .career-category:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(148, 28, 52, 0.1);
+    }
+
+    .career-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #941C34;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .career-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .career-list li {
+      padding: 8px 0;
+      color: #555;
+      font-weight: 500;
+      position: relative;
+      padding-left: 20px;
+    }
+
+    .career-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: #941C34;
+      font-weight: bold;
+    }
+
+    .back-btn {
+      position: fixed;
+      top: 25px;
+      left: 25px;
+      background: linear-gradient(135deg, #941C34, #c23d50);
+      color: white;
+      border: none;
+      padding: 15px 18px;
+      border-radius: 50%;
+      box-shadow: 0 6px 20px rgba(148, 28, 52, 0.4);
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+
+    .back-btn:hover {
+      transform: translateY(-3px) scale(1.1);
+      box-shadow: 0 10px 30px rgba(148, 28, 52, 0.6);
+    }
+
+    .decorative-line {
+      height: 4px;
+      background: linear-gradient(135deg, #941C34, #c23d50);
+      border-radius: 2px;
+      width: 100px;
+      margin: 25px auto;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 768px) {
+      .page-title {
+        font-size: 2.8rem;
+      }
+      
+      .content-container {
+        margin: -80px 15px 40px;
+        padding: 40px 25px;
+      }
+      
+      .vision-mission-cards {
+        flex-direction: column;
+        gap: 20px;
+      }
+      
+      .outcome-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .career-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Floating particles -->
+  <div class="particles" id="particles"></div>
+  
+  <!-- Scroll indicator -->
+  <div class="scroll-indicator">
+    <div class="scroll-progress" id="scroll-progress"></div>
+  </div>
+
+  <!-- Back Button -->
+  <button class="back-btn" onclick="window.history.back()" title="Go Back">
+    <i class="bi bi-arrow-left"></i>
+  </button>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container hero-content">
+      <div class="text-center">
+        <nav class="breadcrumb-custom d-inline-flex mb-4">
+          <a href="../index.html">Home</a>
+          <span class="mx-2">/</span>
+          <a href="#">About</a>
+          <span class="mx-2">/</span>
+          <span>Vision & Mission</span>
+        </nav>
+        <h1 class="page-title" data-aos="fade-up">Vision & Mission</h1>
+        <div class="page-subtitle" data-aos="fade-up" data-aos-delay="100">
+          Shaping Future Leaders in AI & Machine Learning
+        </div>
+        <div class="decorative-line" data-aos="fade-up" data-aos-delay="200"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content Section -->
+  <div class="container">
+    <div class="content-container" data-aos="fade-up" data-aos-delay="300">
+      
+      <!-- Vision & Mission Cards -->
+      <div class="vision-mission-cards fade-in">
+        <div class="vision-card">
+          <div class="card-title">
+            <div class="card-icon">
+              <i class="bi bi-eye"></i>
+            </div>
+            Our Vision
+          </div>
+          <div class="content-text">
+            To develop engineers well versed with Critical Theory and Practicals (problem solving ability); and sensitive to National and Global challenges from Inter-disciplinary perspective. To create Industry ready; socially and ethically strong professionals.
+          </div>
+        </div>
+        
+        <div class="mission-card">
+          <div class="card-title">
+            <div class="card-icon">
+              <i class="bi bi-target"></i>
+            </div>
+            Our Mission
+          </div>
+          <div class="content-text">
+            <ul class="mission-list">
+              <li>To develop the Computer Professionals by imparting computer engineering knowledge with professional ethics</li>
+              <li>To provide the service to the communities to which we belong at local and national levels, combined with a deep awareness of our ethical responsibilities to our profession and to society</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Program Outcomes -->
+      <div class="mb-5 fade-in">
+        <h2 class="section-title" data-aos="fade-right">Program Outcomes</h2>
+        <p class="content-text mb-4">At the end of program, students should be able to:</p>
+        
+        <div class="outcome-grid">
+          <div class="outcome-card">
+            <div class="outcome-number">1</div>
+            <div class="outcome-title">Engineering Knowledge</div>
+            <div class="outcome-description">Apply the knowledge of mathematics, science, engineering fundamentals, and an engineering specialization to the solution of complex engineering problems.</div>
+          </div>
+          
+          <div class="outcome-card">
+            <div class="outcome-number">2</div>
+            <div class="outcome-title">Problem Analysis</div>
+            <div class="outcome-description">Identify, formulate, review research literature, and analyze complex engineering problems reaching substantiated conclusions using first principles of mathematics, natural sciences, and engineering sciences.</div>
+          </div>
+          
+          <div class="outcome-card">
+            <div class="outcome-number">3</div>
+            <div class="outcome-title">Design/Development of Solutions</div>
+            <div class="outcome-description">Design solutions for complex engineering problems and design system components or processes that meet the specified needs with appropriate consideration for public health, safety, cultural, societal, and environmental considerations.</div>
+          </div>
+          
+          <div class="outcome-card">
+            <div class="outcome-number">4</div>
+            <div class="outcome-title">Conduct Investigations</div>
+            <div class="outcome-description">Use research-based knowledge and research methods including design of experiments, analysis and interpretation of data, and synthesis of information to provide valid conclusions.</div>
+          </div>
+          
+          <div class="outcome-card">
+            <div class="outcome-number">5</div>
+            <div class="outcome-title">Modern Tool Usage</div>
+            <div class="outcome-description">Create, select, and apply appropriate techniques, resources, and modern engineering and IT tools including prediction and modelling to complex engineering activities with understanding of limitations.</div>
+          </div>
+          
+          <div class="outcome-card">
+            <div class="outcome-number">6</div>
+            <div class="outcome-title">The Engineer and Society</div>
+            <div class="outcome-description">Apply reasoning informed by contextual knowledge to assess societal, health, safety, legal and cultural issues and the consequent responsibilities relevant to professional engineering practice.</div>
+          </div>
+          
+          <div class="outcome-card">
+            <div class="outcome-number">7</div>
+            <div class="outcome-title">Environment and Sustainability</div>
+            <div class="outcome-description">Understand the impact of professional engineering solutions in societal and environmental contexts, and demonstrate knowledge of, and need for sustainable development.</div>
+          </div>
+          
+          <div class="outcome-card">
+            <div class="outcome-number">8</div>
+            <div class="outcome-title">Ethics</div>
+            <div class="outcome-description">Apply ethical principles and commit to professional ethics and responsibilities and norms of engineering practice.</div>
+          </div>
+          
+          <div class="outcome-card">
+            <div class="outcome-number">9</div>
+            <div class="outcome-title">Individual and Team Work</div>
+            <div class="outcome-description">Function effectively as an individual, and as a member or leader in diverse teams, and in multidisciplinary settings.</div>
+          </div>
+          
+          <div class="outcome-card">
+            <div class="outcome-number">10</div>
+            <div class="outcome-title">Communication</div>
+            <div class="outcome-description">Communicate effectively on complex engineering activities with the engineering community and society at large, including writing effective reports, design documentation, presentations, and clear instructions.</div>
+          </div>
+          
+          <div class="outcome-card">
+            <div class="outcome-number">11</div>
+            <div class="outcome-title">Project Management and Finance</div>
+            <div class="outcome-description">Demonstrate knowledge and understanding of engineering and management principles and apply these to one's own work, as a member and leader in a team, to manage projects in multidisciplinary environments.</div>
+          </div>
+          
+          <div class="outcome-card">
+            <div class="outcome-number">12</div>
+            <div class="outcome-title">Life-long Learning</div>
+            <div class="outcome-description">Recognize the need for, and have the preparation and ability to engage in independent and life-long learning in the broadest context of technological change.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Program Educational Objectives -->
+      <div class="mb-5 fade-in">
+        <h2 class="section-title" data-aos="fade-right">Program Educational Objectives</h2>
+        <p class="content-text mb-4">Program Educational Objectives (PEOs) for B.Tech in Artificial Intelligence & Machine Learning:</p>
+        
+        <div class="peo-grid">
+          <div class="peo-card">
+            <div class="peo-number">1</div>
+            <div class="content-text">To provide students with knowledge and skills to become leading experts in the field of computer science engineering.</div>
+          </div>
+          
+          <div class="peo-card">
+            <div class="peo-number">2</div>
+            <div class="content-text">To provide an innovative and comprehensive curriculum that integrates theoretical knowledge with practical experience, research opportunities, and professional development.</div>
+          </div>
+          
+          <div class="peo-card">
+            <div class="peo-number">3</div>
+            <div class="content-text">To groom the student's overall personality for professional growth.</div>
+          </div>
+          
+          <div class="peo-card">
+            <div class="peo-number">4</div>
+            <div class="content-text">To inculcate values and ethics among the students and making them aware about their social commitments.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Program Specific Outcomes -->
+      <div class="mb-5 fade-in">
+        <h2 class="section-title" data-aos="fade-right">Program Specific Outcomes</h2>
+        <p class="content-text mb-4">At the end of program, students should be able to:</p>
+        
+        <div class="row">
+          <div class="col-lg-6 mb-4">
+            <div class="outcome-card">
+              <div class="outcome-number">1</div>
+              <div class="outcome-title">Technical Integration</div>
+              <div class="outcome-description">Use knowledge to write programs and integrate them with hardware/software products in the domains of artificial intelligence systems, data science, networking and web technology.</div>
+            </div>
+          </div>
+          
+          <div class="col-lg-6 mb-4">
+            <div class="outcome-card">
+              <div class="outcome-number">2</div>
+              <div class="outcome-title">Professional Implementation</div>
+              <div class="outcome-description">Participate in planning and implement solutions to cater to business specific requirements, displaying team dynamics and professional ethics.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Career Pathways -->
+      <div class="career-section fade-in">
+        <h2 class="section-title" data-aos="fade-right">
+          <i class="bi bi-briefcase me-3"></i>Career Pathways
+        </h2>
+        <p class="content-text">Graduates of CSE (AI & ML) at PCU are equipped for diverse global careers across IT, research, healthcare, finance, robotics, cybersecurity, and entrepreneurship.</p>
+        
+        <div class="career-grid">
+          <div class="career-category technical">
+            <div class="career-title">
+              <i class="bi bi-cpu"></i>
+              Core Technical Roles
+            </div>
+            <ul class="career-list">
+              <li>AI Engineer</li>
+              <li>Machine Learning Engineer</li>
+              <li>Data Scientist / Analyst</li>
+              <li>Deep Learning Specialist</li>
+              <li>Computer Vision Engineer</li>
+              <li>Natural Language Processing (NLP) Engineer</li>
+            </ul>
+          </div>
+          
+          <div class="career-category interdisciplinary">
+            <div class="career-title">
+              <i class="bi bi-globe"></i>
+              Interdisciplinary Careers
+            </div>
+            <ul class="career-list">
+              <li>Healthcare AI Specialist</li>
+              <li>Financial AI Analyst</li>
+              <li>Cybersecurity Analyst (AI-based)</li>
+              <li>Robotics & Automation Engineer</li>
+              <li>Autonomous Systems Developer</li>
+              <li>Smart City & IoT Innovator</li>
+            </ul>
+          </div>
+          
+          <div class="career-category business">
+            <div class="career-title">
+              <i class="bi bi-graph-up"></i>
+              Business & Leadership Roles
+            </div>
+            <ul class="career-list">
+              <li>AI Product Manager</li>
+              <li>Business Intelligence Developer</li>
+              <li>AI Consultant</li>
+              <li>Entrepreneur / Start-up Founder</li>
+            </ul>
+          </div>
+          
+          <div class="career-category research">
+            <div class="career-title">
+              <i class="bi bi-mortarboard"></i>
+              Research & Academic Pathways
+            </div>
+            <ul class="career-list">
+              <li>AI Research Scientist</li>
+              <li>Higher Studies (M.Tech, MS, Ph.D. in AI/ML)</li>
+              <li>Academician / Faculty in AI & ML</li>
+              <li>AI Policy & Ethics Specialist</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    // Scroll progress indicator
+    function updateScrollProgress() {
+      const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+      document.getElementById('scroll-progress').style.width = scrolled + '%';
+    }
+
+    // Create floating particles
+    function createParticles() {
+      const particlesContainer = document.getElementById('particles');
+      const particleCount = 20;
+      const particleTypes = ['type1', 'type2', 'type3'];
+      
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        const type = particleTypes[Math.floor(Math.random() * particleTypes.length)];
+        particle.className = `particle ${type}`;
+        particle.style.left = Math.random() * 100 + 'vw';
+        particle.style.animationDelay = Math.random() * 12 + 's';
+        particle.style.animationDuration = (Math.random() * 6 + 6) + 's';
+        particlesContainer.appendChild(particle);
+      }
+    }
+
+    // Fade in animations
+    function initFadeInAnimations() {
+      const fadeElements = document.querySelectorAll('.fade-in');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              entry.target.classList.add('visible');
+            }, index * 100);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+      
+      fadeElements.forEach(element => observer.observe(element));
+    }
+
+    // Initialize AOS
+    AOS.init({
+      duration: 1000,
+      once: true,
+      offset: 50,
+      easing: 'ease-out-cubic'
+    });
+
+    // Initialize everything when page loads
+    window.addEventListener('load', function() {
+      createParticles();
+      initFadeInAnimations();
+    });
+
+    // Update scroll progress on scroll
+    window.addEventListener('scroll', updateScrollProgress);
+
+    // Add smooth scrolling behavior
+    document.documentElement.style.scrollBehavior = 'smooth';
+  </script>
+</body>
+</html>

@@ -16,6 +16,67 @@
       font-family: 'Roboto', sans-serif;
       line-height: 1.6;
       background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      overflow-x: hidden;
+    }
+
+    /* Floating particles background */
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .particle {
+      position: absolute;
+      display: block;
+      pointer-events: none;
+      width: 6px;
+      height: 6px;
+      background: rgba(148, 28, 52, 0.1);
+      border-radius: 50%;
+      animation: float 6s infinite linear;
+    }
+
+    @keyframes float {
+      0% {
+        opacity: 1;
+        transform: translateY(100vh) scale(0);
+      }
+      10% {
+        opacity: 1;
+        transform: translateY(90vh) scale(1);
+      }
+      90% {
+        opacity: 1;
+        transform: translateY(10vh) scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-10vh) scale(0);
+      }
+    }
+
+    /* Scroll indicator */
+    .scroll-indicator {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: rgba(148, 28, 52, 0.1);
+      z-index: 1000;
+    }
+
+    .scroll-progress {
+      height: 100%;
+      background: linear-gradient(90deg, #941C34, #c23d50);
+      width: 0%;
+      transition: width 0.1s ease;
     }
 
     .hero-section {
@@ -24,6 +85,7 @@
       padding: 80px 0;
       position: relative;
       overflow: hidden;
+      z-index: 2;
     }
 
     .hero-section::before {
@@ -50,6 +112,25 @@
       text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
     }
 
+    /* Typing animation */
+    .typing-subtitle {
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 600;
+      font-size: 1.3rem;
+      text-align: center;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      min-height: 35px;
+      border-right: 2px solid rgba(255, 255, 255, 0.9);
+      animation: blink 1s infinite;
+      display: inline-block;
+    }
+
+    @keyframes blink {
+      0%, 50% { border-color: transparent; }
+      51%, 100% { border-color: rgba(255, 255, 255, 0.9); }
+    }
+
     .breadcrumb-custom {
       background: rgba(255,255,255,0.1);
       border-radius: 50px;
@@ -74,7 +155,7 @@
       padding: 50px;
       margin: -80px auto 50px;
       position: relative;
-      z-index: 3;
+      z-index: 10;
       max-width: 1200px;
     }
 
@@ -135,6 +216,9 @@
       font-size: 1.3rem;
       font-style: italic;
       position: relative;
+      transition: all 0.4s ease;
+      cursor: pointer;
+      overflow: hidden;
     }
 
     .quote-highlight::before {
@@ -144,6 +228,11 @@
       top: -10px;
       left: 20px;
       opacity: 0.3;
+    }
+
+    .quote-highlight:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 45px rgba(148, 28, 52, 0.4);
     }
 
     .signature {
@@ -181,9 +270,25 @@
       margin: 20px auto;
     }
 
+    /* Ripple animation styles */
+    @keyframes ripple {
+      from {
+        transform: scale(0);
+        opacity: 1;
+      }
+      to {
+        transform: scale(2);
+        opacity: 0;
+      }
+    }
+
     @media (max-width: 768px) {
       .page-title {
         font-size: 2.5rem;
+      }
+      
+      .typing-subtitle {
+        font-size: 1.1rem;
       }
       
       .message-container {
@@ -208,6 +313,14 @@
 </head>
 
 <body>
+  <!-- Floating particles -->
+  <div class="particles" id="particles"></div>
+  
+  <!-- Scroll indicator -->
+  <div class="scroll-indicator">
+    <div class="scroll-progress" id="scroll-progress"></div>
+  </div>
+
   <!-- Back Button -->
   <button class="back-btn" onclick="window.history.back()" title="Go Back">
     <i class="bi bi-arrow-left"></i>
@@ -225,6 +338,7 @@
           <span>HoD's Message</span>
         </nav>
         <h1 class="page-title" data-aos="fade-up">HoD's Desk</h1>
+        <div class="typing-subtitle" id="typing-text" data-aos="fade-up" data-aos-delay="100"></div>
         <div class="decorative-line" data-aos="fade-up" data-aos-delay="200"></div>
       </div>
     </div>
@@ -236,7 +350,7 @@
       
       <!-- HoD Profile -->
       <div class="hod-profile" data-aos="zoom-in" data-aos-delay="400">
-        <img src="https://github.com/VishalMache/Website_ai-ml/blob/main/AI&ML%20website/AI&ML%20Faculty%5B1%5D/AI&ML%20Faculty/Swati%20Shirke.png?raw=true" alt="Dr. Swati Shirke-Deshmukh" class="hod-image">
+        <img src="https://github.com/VishalMache/Website_ai-ml/blob/main/AI&ML%20website/AI&ML%20Faculty%5B1%5D/AI&ML%20Faculty/Swati%20Shirke.png?raw=true" alt="Dr. Swati Shirke-Deshmukh" class="hod-image" id="hod-image">
         <h2 class="hod-name">Dr. Swati Shirke-Deshmukh</h2>
         <p class="hod-designation">
           Head, Department of Computer Science & Engineering (AI & ML),<br>
@@ -267,7 +381,7 @@
         </p>
 
         <!-- Quote Highlight -->
-        <div class="quote-highlight" data-aos="fade-up" data-aos-delay="600">
+        <div class="quote-highlight" id="quote-section" data-aos="fade-up" data-aos-delay="600">
           Together, let us shape minds, transform lives, and create impactful leaders of tomorrow.
         </div>
 
@@ -284,11 +398,103 @@
   </div>
 
   <script>
+    // Typing animation
+    const typingText = 'Inspiring Innovation & Excellence';
+    let i = 0;
+    const speed = 100;
+    
+    function typeWriter() {
+      if (i < typingText.length) {
+        document.getElementById('typing-text').innerHTML += typingText.charAt(i);
+        i++;
+        setTimeout(typeWriter, speed);
+      } else {
+        // Remove blinking cursor after typing is complete
+        setTimeout(() => {
+          document.getElementById('typing-text').style.borderRight = 'none';
+        }, 1000);
+      }
+    }
+
+    // Scroll progress indicator
+    function updateScrollProgress() {
+      const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+      document.getElementById('scroll-progress').style.width = scrolled + '%';
+    }
+
+    // Create floating particles
+    function createParticles() {
+      const particlesContainer = document.getElementById('particles');
+      const particleCount = 15;
+      
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.left = Math.random() * 100 + 'vw';
+        particle.style.animationDelay = Math.random() * 6 + 's';
+        particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+        particlesContainer.appendChild(particle);
+      }
+    }
+
+    // Add interactive effects
+    function addInteractiveEffects() {
+      const quoteSection = document.getElementById('quote-section');
+      const hodImage = document.getElementById('hod-image');
+      
+      // Quote section hover effects
+      quoteSection.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-5px) scale(1.02)';
+      });
+      
+      quoteSection.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0) scale(1)';
+      });
+
+      // Add click ripple effect to quote
+      quoteSection.addEventListener('click', function(e) {
+        const ripple = document.createElement('div');
+        const rect = this.getBoundingClientRect();
+        const size = 100;
+        const x = e.clientX - rect.left - size / 2;
+        const y = e.clientY - rect.top - size / 2;
+        
+        ripple.style.cssText = `
+          position: absolute;
+          width: ${size}px;
+          height: ${size}px;
+          border-radius: 50%;
+          background: rgba(255, 255, 255, 0.3);
+          left: ${x}px;
+          top: ${y}px;
+          animation: ripple 0.6s ease-out;
+          pointer-events: none;
+        `;
+        
+        this.appendChild(ripple);
+        setTimeout(() => ripple.remove(), 600);
+      });
+    }
+
+    // Initialize AOS
     AOS.init({
       duration: 1000,
       once: true,
       offset: 100
     });
+
+    // Initialize everything when page loads
+    window.addEventListener('load', function() {
+      setTimeout(typeWriter, 1000); // Start typing after AOS animations
+      createParticles();
+      addInteractiveEffects();
+    });
+
+    // Update scroll progress on scroll
+    window.addEventListener('scroll', updateScrollProgress);
+
+    // Add smooth scrolling behavior
+    document.documentElement.style.scrollBehavior = 'smooth';
   </script>
 </body>
 </html>

@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Department - CSE AI & ML | PCU</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@400;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.6;
+      background: linear-gradient(135deg, #f7f9fc 0%, #fff0f6 100%);
+      overflow-x: hidden;
+    }
+
+    /* Enhanced floating particles */
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .particle {
+      position: absolute;
+      display: block;
+      pointer-events: none;
+      border-radius: 50%;
+      animation: float 2s infinite linear;
+    }
+
+    .particle.type1 {
+      width: 6px;
+      height: 6px;
+      background: rgba(148, 28, 52, 0.15);
+    }
+
+    .particle.type2 {
+      width: 4px;
+      height: 4px;
+      background: rgba(194, 61, 80, 0.12);
+    }
+
+    .particle.type3 {
+      width: 8px;
+      height: 8px;
+      background: rgba(148, 28, 52, 0.08);
+    }
+
+    @keyframes float {
+      0% {
+        opacity: 1;
+        transform: translateY(100vh) scale(0) rotate(0deg);
+      }
+      10% {
+        opacity: 1;
+        transform: translateY(90vh) scale(1) rotate(45deg);
+      }
+      90% {
+        opacity: 1;
+        transform: translateY(10vh) scale(1) rotate(315deg);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-10vh) scale(0) rotate(360deg);
+      }
+    }
+
+    /* Enhanced scroll indicator */
+    .scroll-indicator {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: rgba(148, 28, 52, 0.1);
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+    }
+
+    .scroll-progress {
+      height: 100%;
+      background: linear-gradient(90deg, #941C34, #c23d50, #941C34);
+      background-size: 200% 100%;
+      width: 0%;
+      transition: width 0.1s ease;
+      animation: shimmer 2s infinite;
+    }
+
+    @keyframes shimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+
+    .hero-section {
+      background: linear-gradient(135deg, #941C34, #c23d50, #d45087);
+      color: white;
+      padding: 100px 0;
+      position: relative;
+      overflow: hidden;
+      z-index: 2;
+    }
+
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255,255,255,0.08) 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, rgba(255,255,255,0.06) 0%, transparent 50%);
+      animation: heroFloat 6s ease-in-out infinite;
+    }
+
+    @keyframes heroFloat {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-10px) rotate(1deg); }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .page-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 4rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      
+      background: linear-gradient(45deg, #fff, #f0f8ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .counter-subtitle {
+      color: rgba(255, 255, 255, 0.95);
+      font-weight: 500;
+      font-size: 1.3rem;
+      text-align: center;
+      margin-top: 15px;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+    }
+
+    .breadcrumb-custom {
+      background: rgba(255,255,255,0.15);
+      border-radius: 50px;
+      padding: 12px 24px;
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(255,255,255,0.2);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    }
+
+    .breadcrumb-custom a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    .breadcrumb-custom a:hover {
+      color: white;
+     
+    }
+
+    .content-container {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 25px;
+      box-shadow: 
+        0 25px 80px rgba(148, 28, 52, 0.15),
+        0 0 0 1px rgba(148, 28, 52, 0.05);
+      padding: 60px;
+      margin: -100px auto 60px;
+      position: relative;
+      z-index: 10;
+      max-width: 1300px;
+      overflow: hidden;
+    }
+
+    .content-container::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(148, 28, 52, 0.02), transparent);
+      animation: containerShimmer 8s infinite;
+    }
+
+    @keyframes containerShimmer {
+      0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+      100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+    }
+
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      color: #941C34;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 35px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      left: 0;
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(135deg, #941C34, #c23d50);
+      border-radius: 3px;
+      animation: lineGlow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes lineGlow {
+      0% { box-shadow: 0 0 5px rgba(148, 28, 52, 0.3); }
+      100% { box-shadow: 0 0 20px rgba(148, 28, 52, 0.6); }
+    }
+
+    .content-text {
+      font-size: 1.15rem;
+      color: #333;
+      line-height: 1.9;
+      margin-bottom: 28px;
+      text-align: justify;
+      position: relative;
+    }
+
+    .stats-card {
+      background: linear-gradient(135deg, #ffffff, #f8f9fa);
+      border: 2px solid rgba(148, 28, 52, 0.1);
+      border-radius: 20px;
+      padding: 40px 30px;
+      text-align: center;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stats-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(148, 28, 52, 0.05), rgba(194, 61, 80, 0.05));
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .stats-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 
+        0 20px 60px rgba(148, 28, 52, 0.2),
+        0 0 0 2px rgba(148, 28, 52, 0.1);
+      border-color: rgba(148, 28, 52, 0.3);
+    }
+
+    .stats-card:hover::before {
+      opacity: 1;
+    }
+
+    .stats-number {
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: #941C34;
+      margin-bottom: 15px;
+      font-family: 'Space Grotesk', sans-serif;
+      position: relative;
+      z-index: 2;
+    }
+
+    .stats-label {
+      color: #6c757d;
+      font-weight: 600;
+      font-size: 1.1rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .highlight-box {
+      background: linear-gradient(135deg, rgba(148, 28, 52, 0.08), rgba(194, 61, 80, 0.06));
+      border-left: 5px solid #941C34;
+      border-radius: 15px;
+      padding: 35px;
+      margin: 35px 0;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+    }
+
+    .highlight-box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+      transition: left 0.6s ease;
+    }
+
+    .highlight-box:hover {
+      background: linear-gradient(135deg, rgba(148, 28, 52, 0.12), rgba(194, 61, 80, 0.10));
+      transform: translateX(15px);
+      box-shadow: 0 10px 30px rgba(148, 28, 52, 0.15);
+    }
+
+    .highlight-box:hover::before {
+      left: 100%;
+    }
+
+    .feature-icon {
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, #941C34, #c23d50);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      margin-bottom: 25px;
+     
+      box-shadow: 0 8px 25px rgba(148, 28, 52, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-icon::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, rgba(255,255,255,0.2), transparent);
+      border-radius: 50%;
+    }
+
+    .feature-card {
+      text-align: center;
+      padding: 35px 25px;
+      transition: all 0.4s ease;
+      border-radius: 20px;
+      position: relative;
+    }
+
+    .feature-card:hover {
+      background: rgba(148, 28, 52, 0.03);
+      transform: translateY(-8px);
+      box-shadow: 0 15px 40px rgba(148, 28, 52, 0.1);
+    }
+
+    .feature-card:hover .feature-icon {
+      transform: scale(1.15) rotate(360deg);
+      box-shadow: 0 12px 35px rgba(148, 28, 52, 0.4);
+    }
+
+    .back-btn {
+      position: fixed;
+      top: 25px;
+      left: 25px;
+      background: linear-gradient(135deg, #941C34, #c23d50);
+      color: white;
+      border: none;
+      padding: 15px 18px;
+      border-radius: 50%;
+      box-shadow: 0 6px 20px rgba(148, 28, 52, 0.4);
+      transition: all 0.3s ease;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+    }
+
+    .back-btn:hover {
+      transform: translateY(-3px) scale(1.1);
+      box-shadow: 0 10px 30px rgba(148, 28, 52, 0.6);
+    }
+
+    .decorative-line {
+      height: 5px;
+      background: linear-gradient(135deg, #941C34, #c23d50, #941C34);
+      background-size: 200% 100%;
+      border-radius: 3px;
+      width: 100px;
+      margin: 25px auto;
+      animation: lineMove 3s linear infinite;
+    }
+
+    @keyframes lineMove {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .programs-grid {
+      background: linear-gradient(135deg, #f8f9fa, #ffffff);
+      border-radius: 20px;
+      padding: 40px;
+      border: 2px solid rgba(148, 28, 52, 0.1);
+      transition: all 0.4s ease;
+    }
+
+    .programs-grid:hover {
+      border-color: rgba(148, 28, 52, 0.2);
+      box-shadow: 0 15px 40px rgba(148, 28, 52, 0.1);
+    }
+
+    .program-item {
+      padding: 15px 0;
+      border-bottom: 1px solid rgba(148, 28, 52, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .program-item:hover {
+      background: rgba(148, 28, 52, 0.02);
+      padding-left: 15px;
+      border-radius: 10px;
+    }
+
+    .program-item:last-child {
+      border-bottom: none;
+    }
+
+    @media (max-width: 768px) {
+      .page-title {
+        font-size: 2.8rem;
+      }
+      
+      .content-container {
+        margin: -80px 15px 40px;
+        padding: 40px 25px;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
+      
+      .stats-number {
+        font-size: 2.8rem;
+      }
+      
+      .content-text {
+        font-size: 1.05rem;
+      }
+      
+      .feature-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Enhanced floating particles -->
+  <div class="particles" id="particles"></div>
+  
+  <!-- Enhanced scroll indicator -->
+  <div class="scroll-indicator">
+    <div class="scroll-progress" id="scroll-progress"></div>
+  </div>
+
+  <!-- Back Button -->
+  <button class="back-btn" onclick="window.history.back()" title="Go Back">
+    <i class="bi bi-arrow-left"></i>
+  </button>
+
+  <!-- Enhanced Hero Section -->
+  <section class="hero-section">
+    <div class="container hero-content">
+      <div class="text-center">
+        <nav class="breadcrumb-custom d-inline-flex mb-4">
+          <a href="../index.html">Home</a>
+          <span class="mx-2">/</span>
+          <a href="#">About</a>
+          <span class="mx-2">/</span>
+          <span>Department</span>
+        </nav>
+        <h1 class="page-title" data-aos="fade-up">About Our Department</h1>
+        <div class="counter-subtitle" data-aos="fade-up" data-aos-delay="100">
+          Established in <span id="establishment-year">2020</span> • Excellence for <span id="years-count">5</span> Years
+        </div>
+        <div class="decorative-line" data-aos="fade-up" data-aos-delay="200"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Enhanced Content Section -->
+  <div class="container">
+    <div class="content-container" data-aos="fade-up" data-aos-delay="300">
+      
+      <!-- Department Overview -->
+      <div class="mb-5">
+        <h2 class="section-title" data-aos="fade-right">Department Overview</h2>
+        <div class="content-text fade-in">
+          The Department of Computer Science & Engineering (AI & ML) at Pimpri Chinchwad University stands as a beacon of technological innovation and academic excellence. Established with a vision to nurture the next generation of tech leaders, our department combines cutting-edge research with industry-aligned curriculum to create globally competent engineers.
+        </div>
+        <div class="content-text fade-in">
+          We are committed to fostering an environment where students can explore, innovate, and excel in the rapidly evolving fields of Artificial Intelligence, Machine Learning, and Computer Science. Our state-of-the-art facilities, experienced faculty, and industry partnerships provide students with unparalleled opportunities for growth and development.
+        </div>
+      </div>
+
+      <!-- Enhanced Statistics -->
+      <div class="mb-5">
+        <h2 class="section-title" data-aos="fade-right">Department at a Glance</h2>
+        <div class="row g-4 mt-3">
+          <div class="col-md-3 col-sm-6">
+            <div class="stats-card" data-aos="zoom-in" data-aos-delay="100">
+              <div class="stats-number" data-count="500">0</div>
+              <div class="stats-label">Students Enrolled</div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <div class="stats-card" data-aos="zoom-in" data-aos-delay="200">
+              <div class="stats-number" data-count="25">0</div>
+              <div class="stats-label">Expert Faculty</div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <div class="stats-card" data-aos="zoom-in" data-aos-delay="300">
+              <div class="stats-number" data-count="15">0</div>
+              <div class="stats-label">Research Projects</div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <div class="stats-card" data-aos="zoom-in" data-aos-delay="400">
+              <div class="stats-number" data-count="95">0</div>
+              <div class="stats-label">Placement Rate (%)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Enhanced Vision & Mission -->
+      <div class="mb-5">
+        <div class="row">
+          <div class="col-lg-6 mb-4">
+            <div class="highlight-box fade-in">
+              <h3 class="section-title" style="font-size: 2rem;">Our Vision</h3>
+              <p class="content-text mb-0">
+                To be a globally recognized center of excellence in Computer Science & Engineering, specializing in AI & ML, that produces innovative leaders and researchers who contribute to technological advancement and societal progress.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-6 mb-4">
+            <div class="highlight-box fade-in">
+              <h3 class="section-title" style="font-size: 2rem;">Our Mission</h3>
+              <p class="content-text mb-0">
+                To provide world-class education, foster research and innovation, and develop ethical, socially responsible engineers equipped with cutting-edge knowledge in AI, ML, and emerging technologies to meet global industry demands.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Enhanced Key Features -->
+      <div class="mb-5">
+        <h2 class="section-title" data-aos="fade-right">Why Choose Us</h2>
+        <div class="row g-4 mt-3">
+          <div class="col-lg-4 col-md-6">
+            <div class="feature-card fade-in">
+              <div class="feature-icon mx-auto">
+                <i class="bi bi-cpu"></i>
+              </div>
+              <h4 style="color: #941C34; font-weight: 600; font-family: 'Space Grotesk', sans-serif;">Cutting-edge Curriculum</h4>
+              <p class="content-text">Industry-aligned courses covering AI, ML, Data Science, Blockchain, and Cybersecurity with hands-on projects and real-world applications.</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="feature-card fade-in">
+              <div class="feature-icon mx-auto">
+                <i class="bi bi-people"></i>
+              </div>
+              <h4 style="color: #941C34; font-weight: 600; font-family: 'Space Grotesk', sans-serif;">Expert Faculty</h4>
+              <p class="content-text">Experienced professors and industry experts with advanced degrees and extensive research experience in their respective fields.</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="feature-card fade-in">
+              <div class="feature-icon mx-auto">
+                <i class="bi bi-building"></i>
+              </div>
+              <h4 style="color: #941C34; font-weight: 600; font-family: 'Space Grotesk', sans-serif;">Modern Infrastructure</h4>
+              <p class="content-text">State-of-the-art labs, high-performance computing facilities, and advanced research centers equipped with latest technology.</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="feature-card fade-in">
+              <div class="feature-icon mx-auto">
+                <i class="bi bi-briefcase"></i>
+              </div>
+              <h4 style="color: #941C34; font-weight: 600; font-family: 'Space Grotesk', sans-serif;">Industry Partnerships</h4>
+              <p class="content-text">Strong collaborations with leading tech companies providing internships, placements, and real-world project opportunities.</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="feature-card fade-in">
+              <div class="feature-icon mx-auto">
+                <i class="bi bi-lightbulb"></i>
+              </div>
+              <h4 style="color: #941C34; font-weight: 600; font-family: 'Space Grotesk', sans-serif;">Research Excellence</h4>
+              <p class="content-text">Active research programs in AI/ML, published papers in international journals, and participation in global conferences.</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="feature-card fade-in">
+              <div class="feature-icon mx-auto">
+                <i class="bi bi-trophy"></i>
+              </div>
+              <h4 style="color: #941C34; font-weight: 600; font-family: 'Space Grotesk', sans-serif;">Student Success</h4>
+              <p class="content-text">Outstanding placement records, successful alumni network, and recognition in hackathons and technical competitions.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Enhanced Programs Offered -->
+      <div class="mb-5">
+        <h2 class="section-title" data-aos="fade-right">Programs Offered</h2>
+        <div class="programs-grid fade-in">
+          <div class="row">
+            <div class="col-md-6">
+              <h4 style="color: #941C34; font-weight: 600; margin-bottom: 25px; font-family: 'Space Grotesk', sans-serif;">
+                <i class="bi bi-mortarboard me-2"></i>Undergraduate Programs
+              </h4>
+              <div class="program-item">
+                <i class="bi bi-check-circle text-success me-3"></i>
+                <strong>B.Tech in Computer Science & Engineering (AI & ML)</strong>
+                <p class="ms-4 mb-0 text-muted">4-year comprehensive program focusing on AI and ML fundamentals</p>
+              </div>
+              <div class="program-item">
+                <i class="bi bi-check-circle text-success me-3"></i>
+                <strong>B.Tech in Data Science & Analytics</strong>
+                <p class="ms-4 mb-0 text-muted">Specialized program in big data and analytics technologies</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <h4 style="color: #941C34; font-weight: 600; margin-bottom: 25px; font-family: 'Space Grotesk', sans-serif;">
+                <i class="bi bi-book me-2"></i>Postgraduate Programs
+              </h4>
+              <div class="program-item">
+                <i class="bi bi-check-circle text-success me-3"></i>
+                <strong>M.Tech in Artificial Intelligence & Machine Learning</strong>
+                <p class="ms-4 mb-0 text-muted">Advanced research-oriented program in AI/ML</p>
+              </div>
+              <div class="program-item">
+                <i class="bi bi-check-circle text-success me-3"></i>
+                <strong>Ph.D in Computer Science & Engineering</strong>
+                <p class="ms-4 mb-0 text-muted">Doctoral research program for academic and industry careers</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    // Enhanced scroll progress indicator with shimmer effect
+    function updateScrollProgress() {
+      const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+      document.getElementById('scroll-progress').style.width = scrolled + '%';
+    }
+
+    // Enhanced particle system with multiple types
+    function createParticles() {
+      const particlesContainer = document.getElementById('particles');
+      const particleCount = 25;
+      const particleTypes = ['type1', 'type2', 'type3'];
+      
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        const type = particleTypes[Math.floor(Math.random() * particleTypes.length)];
+        particle.className = `particle ${type}`;
+        particle.style.left = Math.random() * 100 + 'vw';
+        particle.style.animationDelay = Math.random() * 10 + 's';
+        particle.style.animationDuration = (Math.random() * 6 + 4) + 's';
+        particlesContainer.appendChild(particle);
+      }
+    }
+
+    // Enhanced counter animation with easing
+    function animateCounters() {
+      const counters = document.querySelectorAll('[data-count]');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const counter = entry.target;
+            const target = parseInt(counter.getAttribute('data-count'));
+            const duration = 2500;
+            const startTime = performance.now();
+            
+            const updateCounter = (currentTime) => {
+              const elapsed = currentTime - startTime;
+              const progress = Math.min(elapsed / duration, 1);
+              
+              // Easing function for smooth animation
+              const easeOutCubic = 1 - Math.pow(1 - progress, 3);
+              const current = Math.floor(target * easeOutCubic);
+              
+              counter.textContent = current;
+              
+              if (progress < 1) {
+                requestAnimationFrame(updateCounter);
+              } else {
+                counter.textContent = target;
+              }
+            };
+            
+            requestAnimationFrame(updateCounter);
+            observer.unobserve(counter);
+          }
+        });
+      }, { threshold: 0.7 });
+      
+      counters.forEach(counter => observer.observe(counter));
+    }
+
+    // Enhanced fade in animations with staggered delays
+    function initFadeInAnimations() {
+      const fadeElements = document.querySelectorAll('.fade-in');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              entry.target.classList.add('visible');
+            }, index * 100);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+      
+      fadeElements.forEach(element => observer.observe(element));
+    }
+
+    // Dynamic years counter
+    function updateYearsCount() {
+      const currentYear = new Date().getFullYear();
+      const establishmentYear = 2020;
+      const years = currentYear - establishmentYear;
+      document.getElementById('years-count').textContent = years;
+    }
+
+    // Enhanced parallax effect for hero section
+    function initParallaxEffect() {
+      window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const parallax = document.querySelector('.hero-section');
+        const speed = scrolled * 0.5;
+        if (parallax) {
+          parallax.style.transform = `translateY(${speed}px)`;
+        }
+      });
+    }
+
+    // Initialize AOS with custom settings
+    AOS.init({
+      duration: 1200,
+      once: true,
+      offset: 50,
+      easing: 'ease-out-cubic',
+      delay: 100
+    });
+
+    // Initialize everything when page loads
+    window.addEventListener('load', function() {
+      createParticles();
+      animateCounters();
+      initFadeInAnimations();
+      updateYearsCount();
+      initParallaxEffect();
+      
+      // Add some interactive hover sounds simulation
+      document.querySelectorAll('.stats-card, .feature-card, .highlight-box').forEach(card => {
+        card.addEventListener('mouseenter', function() {
+          this.style.transition = 'all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+        });
+      });
+    });
+
+    // Update scroll progress on scroll
+    window.addEventListener('scroll', updateScrollProgress);
+
+    // Add smooth scrolling behavior
+    document.documentElement.style.scrollBehavior = 'smooth';
+  </script>
+</body>
+</html>
