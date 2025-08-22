@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HoD's Message - Dr. Swati Shirke-Deshmukh | PCU AIML</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.6;
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    }
+
+    .hero-section {
+      background: linear-gradient(135deg, #941C34, #c23d50);
+      color: white;
+      padding: 80px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.1)" points="0,1000 1000,0 1000,1000"/></svg>');
+      background-size: cover;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .page-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .breadcrumb-custom {
+      background: rgba(255,255,255,0.1);
+      border-radius: 50px;
+      padding: 10px 20px;
+      backdrop-filter: blur(10px);
+    }
+
+    .breadcrumb-custom a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .breadcrumb-custom a:hover {
+      color: white;
+    }
+
+    .message-container {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+      padding: 50px;
+      margin: -80px auto 50px;
+      position: relative;
+      z-index: 3;
+      max-width: 1200px;
+    }
+
+    .hod-profile {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .hod-image {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 6px solid #941C34;
+      box-shadow: 0 10px 30px rgba(148, 28, 52, 0.3);
+      margin-bottom: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .hod-image:hover {
+      transform: scale(1.05);
+    }
+
+    .hod-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      color: #941C34;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .hod-designation {
+      font-size: 1.1rem;
+      color: #6c757d;
+      font-weight: 500;
+      margin-bottom: 30px;
+    }
+
+    .message-content {
+      font-size: 1.1rem;
+      color: #333;
+      text-align: justify;
+      line-height: 1.8;
+    }
+
+    .message-content p {
+      margin-bottom: 25px;
+    }
+
+    .quote-highlight {
+      background: linear-gradient(135deg, #941C34, #c23d50);
+      color: white;
+      padding: 30px;
+      border-radius: 15px;
+      margin: 40px 0;
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-style: italic;
+      position: relative;
+    }
+
+    .quote-highlight::before {
+      content: '"';
+      font-size: 4rem;
+      position: absolute;
+      top: -10px;
+      left: 20px;
+      opacity: 0.3;
+    }
+
+    .signature {
+      text-align: right;
+      margin-top: 40px;
+      font-weight: 500;
+      color: #941C34;
+    }
+
+    .back-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background: #941C34;
+      color: white;
+      border: none;
+      padding: 12px 15px;
+      border-radius: 50%;
+      box-shadow: 0 4px 15px rgba(148, 28, 52, 0.4);
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+
+    .back-btn:hover {
+      background: #c23d50;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(148, 28, 52, 0.6);
+    }
+
+    .decorative-line {
+      height: 4px;
+      background: linear-gradient(135deg, #941C34, #c23d50);
+      border-radius: 2px;
+      width: 80px;
+      margin: 20px auto;
+    }
+
+    @media (max-width: 768px) {
+      .page-title {
+        font-size: 2.5rem;
+      }
+      
+      .message-container {
+        margin: -60px 15px 30px;
+        padding: 30px 20px;
+      }
+      
+      .hod-image {
+        width: 150px;
+        height: 150px;
+      }
+      
+      .hod-name {
+        font-size: 1.8rem;
+      }
+      
+      .message-content {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Back Button -->
+  <button class="back-btn" onclick="window.history.back()" title="Go Back">
+    <i class="bi bi-arrow-left"></i>
+  </button>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container hero-content">
+      <div class="text-center">
+        <nav class="breadcrumb-custom d-inline-flex mb-4">
+          <a href="../index.html">Home</a>
+          <span class="mx-2">/</span>
+          <a href="#">About</a>
+          <span class="mx-2">/</span>
+          <span>HoD's Message</span>
+        </nav>
+        <h1 class="page-title" data-aos="fade-up">HoD's Desk</h1>
+        <div class="decorative-line" data-aos="fade-up" data-aos-delay="200"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Message Content -->
+  <div class="container">
+    <div class="message-container" data-aos="fade-up" data-aos-delay="300">
+      
+      <!-- HoD Profile -->
+      <div class="hod-profile" data-aos="zoom-in" data-aos-delay="400">
+        <img src="https://github.com/VishalMache/Website_ai-ml/blob/main/AI&ML%20website/AI&ML%20Faculty%5B1%5D/AI&ML%20Faculty/Swati%20Shirke.png?raw=true" alt="Dr. Swati Shirke-Deshmukh" class="hod-image">
+        <h2 class="hod-name">Dr. Swati Shirke-Deshmukh</h2>
+        <p class="hod-designation">
+          Head, Department of Computer Science & Engineering (AI & ML),<br>
+          Pimpri Chinchwad University
+        </p>
+      </div>
+
+      <!-- Message Content -->
+      <div class="message-content" data-aos="fade-up" data-aos-delay="500">
+        <p>
+          I am thrilled to welcome you to the Department of Computer Science & Engineering (AI & ML) at Pimpri Chinchwad University. Our department is dedicated to fostering the growth of young individuals by equipping them with the necessary knowledge, skills, and values to thrive in the fast-paced technological landscape of today.
+        </p>
+
+        <p>
+          We emphasize not only a solid foundation in computer science but also the development of expertise in innovative fields such as Artificial Intelligence, Machine Learning, Blockchain, Cybersecurity, Data Science, and Cloud Computing. With a passionate team of faculty, modern infrastructure, and partnerships with industry, our department works to cultivate an engaging educational environment that combines academic rigor with practical experience.
+        </p>
+
+        <p>
+          At PCU, we prioritize hands-on learning, research-based teaching, and interdisciplinary projects that enable students to innovate and address real-world issues. We encourage our students to take part in hackathons, research endeavors, technical symposiums, and professional organizations such as IEEE and ACM to extend their learning beyond the classroom.
+        </p>
+
+        <p>
+          As the Head of the Department, my goal is to cultivate globally competent engineers who excel in technology while also embodying ethical principles, social responsibility, and leadership skills. We strive to prepare our graduates to be industry-ready while promoting an entrepreneurial spirit and a commitment to lifelong learning.
+        </p>
+
+        <p>
+          I encourage you to discover the opportunities our department has to offer and join us in our mission to build a future driven by innovation, sustainability, and human values.
+        </p>
+
+        <!-- Quote Highlight -->
+        <div class="quote-highlight" data-aos="fade-up" data-aos-delay="600">
+          Together, let us shape minds, transform lives, and create impactful leaders of tomorrow.
+        </div>
+
+        <!-- Signature -->
+        <div class="signature" data-aos="fade-up" data-aos-delay="700">
+          <p>
+            <strong>Best Regards,</strong><br>
+            <strong>Dr. Swati Shirke-Deshmukh</strong><br>
+            Head of Department CSE - AI & ML, PCU
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true,
+      offset: 100
+    });
+  </script>
+</body>
+</html>
