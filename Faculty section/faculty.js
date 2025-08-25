@@ -116,7 +116,6 @@ function openModal(facultyIndex) {
     document.getElementById('modalDescription').textContent = faculty.description;
     
     // Update existing buttons
-    document.getElementById('linkedinBtn').href = faculty.linkedin;
     document.getElementById('websiteBtn').href = faculty.website;
     
     // Update new social icons
