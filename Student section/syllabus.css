@@ -4,9 +4,153 @@ body {
 }
 
 
-.navbar-brand {
-      height: 100px;
-      width: 180px;
+/* Clean Navbar Styles */
+    .navbar {
+      background: rgba(255, 255, 255, 0.98) !important;
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(148, 28, 52, 0.08);
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+      padding: 0.8rem 0;
+    }
+
+    .navbar.scrolled {
+      background: rgba(255, 255, 255, 1) !important;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.12);
+      padding: 0.5rem 0;
+    }
+
+    .navbar-brand {
+      height: 60px;
+      width: 140px;
+      transition: all 0.3s ease;
+    }
+
+    .navbar-brand img {
+      transition: all 0.3s ease;
+    }
+
+    .navbar-brand:hover img {
+      transform: scale(1.02);
+    }
+
+    .navbar-nav {
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .navbar-nav .nav-item {
+      margin: 0 0.1rem;
+    }
+
+    .navbar-nav .nav-link {
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: #333 !important;
+      padding: 0.7rem 1rem !important;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      position: relative;
+      text-decoration: none;
+    }
+
+    .navbar-nav .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 5px;
+      left: 50%;
+      background: #941C34;
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+
+    .navbar-nav .nav-link:hover {
+      color: #941C34 !important;
+      background: rgba(148, 28, 52, 0.05);
+    }
+
+    .navbar-nav .nav-link:hover::after {
+      width: 70%;
+    }
+
+    .navbar-nav .nav-link.active {
+      color: #941C34 !important;
+      background: rgba(148, 28, 52, 0.08);
+    }
+
+    .navbar-nav .nav-link.active::after {
+      width: 70%;
+    }
+
+    /* Clean Dropdown Styles */
+    .dropdown-menu {
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(148, 28, 52, 0.1);
+      border-radius: 10px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+      margin-top: 0.3rem;
+      padding: 0.5rem 0;
+      min-width: 200px;
+    }
+
+    .dropdown-item {
+      padding: 0.7rem 1.2rem;
+      font-weight: 500;
+      color: #333;
+      transition: all 0.3s ease;
+      border-left: 3px solid transparent;
+    }
+
+    .dropdown-item:hover {
+      background: rgba(148, 28, 52, 0.06);
+      color: #941C34;
+      border-left-color: #941C34;
+      padding-left: 1.5rem;
+    }
+
+    /* Mobile Navbar Toggle */
+    .navbar-toggler {
+      border: none;
+      padding: 0.3rem 0.5rem;
+      transition: all 0.3s ease;
+      border-radius: 6px;
+    }
+
+    .navbar-toggler:hover {
+      background: rgba(148, 28, 52, 0.05);
+    }
+
+    .navbar-toggler:focus {
+      box-shadow: 0 0 0 0.2rem rgba(148, 28, 52, 0.25);
+    }
+
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23941C34' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='m4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+
+    @media (max-width: 991.98px) {
+      .navbar-collapse {
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(10px);
+        border-radius: 10px;
+        margin-top: 1rem;
+        padding: 1rem;
+        border: 1px solid rgba(148, 28, 52, 0.1);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .navbar-nav .nav-link {
+        margin: 0.2rem 0;
+        text-align: left;
+      }
+      
+      .navbar-brand {
+        height: 50px;
+        width: 120px;
+      }
     }
 
 h2 {
@@ -14,13 +158,86 @@ h2 {
   font-weight: bold;
 }
 
+.hero-section {
+      background: linear-gradient(135deg, #941C34, #c23d50, #d45087);
+      color: white;
+      padding: 100px 0;
+      position: relative;
+      overflow: hidden;
+      z-index: 2;
+    }
+
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255,255,255,0.08) 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, rgba(255,255,255,0.06) 0%, transparent 50%);
+      animation: heroFloat 6s ease-in-out infinite;
+    }
+
+    @keyframes heroFloat {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-10px) rotate(1deg); }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .page-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 4rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      
+      background: linear-gradient(45deg, #fff, #f0f8ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .counter-subtitle {
+      color: rgba(255, 255, 255, 0.95);
+      font-weight: 500;
+      font-size: 1.3rem;
+      text-align: center;
+      margin-top: 15px;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+    }
+
+    .breadcrumb-custom {
+      background: rgba(255,255,255,0.15);
+      border-radius: 50px;
+      padding: 12px 24px;
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(255,255,255,0.2);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    }
+
+    .breadcrumb-custom a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    .breadcrumb-custom a:hover {
+      color: white;
+     
+    }
+
 .accordion-button {
   font-weight: 600;
 }
 
-footer {
-  margin-top: 50px;
-}
+
 .btn-primary {
   background-color: #941c34;
   border-color: #941c34;
@@ -56,24 +273,7 @@ footer {
 .accordion-button:after {
   background-image: none !important;
 }
-.navbar {
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      transition: background-color 0.3s ease;
-}
 
-.navbar-nav .nav-link {
-      font-weight: 500;
-      transition: color 0.3s ease;
-}
-    
-.navbar-nav .nav-link:hover {
-      color: #941C34;
-}
-
-.navbar-brand{
-      height: 100px; 
-      width:180px;
-}
 footer {
       background: #941C34;
     }

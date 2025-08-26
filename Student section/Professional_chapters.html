@@ -15,40 +15,78 @@
 </head>
 <body>
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg bg-light sticky-top">
+  <nav class="navbar navbar-expand-lg sticky-top" id="mainNavbar">
   <div class="container-fluid">
-    <a href="../homepage.html">
-     <img src="https://github.com/VishalMache/Website_ai-ml/blob/main/AI&ML%20website/Pcu%20Thumbnail%5B1%5D%20(1)/Pcu%20Thumbnail/PCU_logo_152d67d738.png?raw=true" alt="PCU Logo" width="200">
+    <a class="navbar-brand" href="../homepage.html">
+      <img src="https://github.com/VishalMache/Website_ai-ml/blob/main/Pcu%20Thumbnail%5B1%5D%20(1)/Pcu%20Thumbnail/PCU_logo_152d67d738.png?raw=true" alt="PCU Logo" class="img-fluid" style="height: 100%; width: 100%; object-fit: contain;">
     </a>
-     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <!-- Dropdowns -->
         <li class="nav-item dropdown">
-
-          <li class="nav-item"><a class="nav-link" href="../homepage.html">Home</a></li>
-        </li>
-        <li class="nav-item"><a class="nav-link" href="../Faculty section/Faculty.html">Faculty Profile</a></li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Student Corner</a>
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            About Us
+          </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="syllabus.html">Syllabus</a></li>
-            <li><a class="dropdown-item" href="Professional_chapters.html">Professional Chapters</a></li>
+            <li><a class="dropdown-item" href="../about us/about_department.html">About Department</a></li>
+            <li><a class="dropdown-item" href="../about us/vision&mission.html">Vision & Mission</a></li>
+            <li><a class="dropdown-item" href="../about us/hod's_desk.html">HoD's Desk</a></li>
           </ul>
         </li>
-        <li class="nav-item"><a class="nav-link" href="../activity_workshop.html">Activities</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Student Satisfaction</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+        
+        <li class="nav-item">
+          <a class="nav-link" href="../Faculty section/Faculty.html">
+            Faculty Profile
+          </a>
+        </li>
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Student Corner
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="Student section/syllabus.html">Syllabus</a></li>
+            <li><a class="dropdown-item" href="../Student section/Professional_chapters.html">Professional Chapters</a></li>
+          </ul>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" href="../activity_workshop/activity_workshop.html">Activities & Workshops</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" href="#">Student Satisfaction</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact</a>
+        </li>
       </ul>
     </div>
   </div>
 </nav>
 <br>
+<br>
   <!-- Department Title -->
-  <section class="jumbotron text-center bg-custom text-white py-5 mb-0">
-  <div class="container">
-    <h1 class="display-5 fw-bold">Professional Chapters</h1>
-  </div>
-</section>
+<section class="hero-section">
+    <div class="container hero-content">
+      <div class="text-center">
+        <nav class="breadcrumb-custom d-inline-flex mb-4">
+          <a href="../homepage.html">Home</a>
+          <span class="mx-2">/</span>
+          <span>Student Corner</span>
+          <span class="mx-2">/</span>
+          <span>Professional Chapters and Clubs</span>
+        </nav>
+        <h1 class="page-title" data-aos="fade-up">Professional Chapters and Clubs</h1>
+        <div class="decorative-line" data-aos="fade-up" data-aos-delay="200"></div>
+      </div>
+    </div>
+  </section>
   <!-- Main content -->
   <main class="container my-5">
     <h2 class="text-center mb-4 bg-custom">Active Student Chapters</h2>
@@ -81,14 +119,7 @@
       </div>
     </div>
   </main>
-  
-  <section class="jumbotron text-center bg-custom text-white py-5 mb-0">
-  <div class="container">
-    <h1 class="display-5 fw-bold">Discover Your Club!</h1>
-    <p class="lead mb-4">Find, join, and connect with student clubs across campus.</p>
-  </div>
-</section>
-
+  <br>
 
   <!-- Clubs -->
 <section class="container mt-5" id="clubs">
