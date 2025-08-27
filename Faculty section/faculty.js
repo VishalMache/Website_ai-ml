@@ -7,7 +7,7 @@ const facultyData = [
         image: "https://github.com/VishalMache/Website_ai-ml/blob/main/AI&ML%20Faculty%5B1%5D/AI&ML%20Faculty/Swati%20Shirke.png?raw=true",
         description: "My name is Dr.Swati Shirke-Deshumukh. I have 16.5 years of experience in academics and professional practice. My research domain is AI & ML, where I focus on exploring innovative approaches and practical applications. I am passionate about contributing to knowledge, fostering learning, and advancing technology. Thank you for your attention.",
         linkedin: "https://in.linkedin.com/in/dr-swati-shirke-deshmukh-a870792b7",
-        website: "https://tinyurl.com/SwatiShirke",
+        website: "https://swatideshmukh.netlify.app/",
         scholar: "https://scholar.google.com/citations?user=FstcyVcAAAAJ&hl=en"
     },
     {
