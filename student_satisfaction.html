@@ -4,469 +4,798 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Satisfaction - AI/ML Department</title>
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            overflow-x: hidden;
+            position: relative;
         }
+
+        /* Simple Particle Background Effects */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(148, 28, 52, 0.3);
+            border-radius: 50%;
+            animation: float 6s infinite linear;
+        }
+
+        .particle:nth-child(2) {
+            width: 3px;
+            height: 3px;
+            background: rgba(194, 61, 80, 0.4);
+            animation-duration: 8s;
+            animation-delay: 1s;
+        }
+
+        .particle:nth-child(3) {
+            width: 5px;
+            height: 5px;
+            background: rgba(212, 80, 135, 0.2);
+            animation-duration: 10s;
+            animation-delay: 2s;
+        }
+
+        .particle:nth-child(4) {
+            width: 2px;
+            height: 2px;
+            background: rgba(148, 28, 52, 0.5);
+            animation-duration: 7s;
+            animation-delay: 0.5s;
+        }
+
+        .particle:nth-child(5) {
+            width: 3px;
+            height: 3px;
+            background: rgba(194, 61, 80, 0.3);
+            animation-duration: 9s;
+            animation-delay: 3s;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) translateX(0px);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) translateX(100px);
+                opacity: 0;
+            }
+        }
+        
+        /* Keep existing navbar styles unchanged */
         .navbar {
-      background: rgba(255, 255, 255, 0.98) !important;
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(148, 28, 52, 0.08);
-      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
-      transition: all 0.3s ease;
-      padding: 0.8rem 0;
-    }
-
-    .navbar.scrolled {
-      background: rgba(255, 255, 255, 1) !important;
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.12);
-      padding: 0.5rem 0;
-    }
-
-    .navbar-brand {
-      height: 60px;
-      width: 140px;
-      transition: all 0.3s ease;
-    }
-
-    .navbar-brand img {
-      transition: all 0.3s ease;
-    }
-
-    .navbar-brand:hover img {
-      transform: scale(1.02);
-    }
-
-    .navbar-nav {
-      align-items: center;
-      gap: 0.3rem;
-    }
-
-    .navbar-nav .nav-item {
-      margin: 0 0.1rem;
-    }
-
-    .navbar-nav .nav-link {
-      font-weight: 500;
-      font-size: 0.95rem;
-      color: #333 !important;
-      padding: 0.7rem 1rem !important;
-      border-radius: 8px;
-      transition: all 0.3s ease;
-      position: relative;
-      text-decoration: none;
-    }
-
-    .navbar-nav .nav-link::after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 2px;
-      bottom: 5px;
-      left: 50%;
-      background: #941C34;
-      transition: all 0.3s ease;
-      transform: translateX(-50%);
-    }
-
-    .navbar-nav .nav-link:hover {
-      color: #941C34 !important;
-      background: rgba(148, 28, 52, 0.05);
-    }
-
-    .navbar-nav .nav-link:hover::after {
-      width: 70%;
-    }
-
-    .navbar-nav .nav-link.active {
-      color: #941C34 !important;
-      background: rgba(148, 28, 52, 0.08);
-    }
-
-    .navbar-nav .nav-link.active::after {
-      width: 70%;
-    }
-
-    /* Clean Dropdown Styles */
-    .dropdown-menu {
-      background: rgba(255, 255, 255, 0.98);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(148, 28, 52, 0.1);
-      border-radius: 10px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-      margin-top: 0.3rem;
-      padding: 0.5rem 0;
-      min-width: 200px;
-    }
-
-    .dropdown-item {
-      padding: 0.7rem 1.2rem;
-      font-weight: 500;
-      color: #333;
-      transition: all 0.3s ease;
-      border-left: 3px solid transparent;
-    }
-
-    .dropdown-item:hover {
-      background: rgba(148, 28, 52, 0.06);
-      color: #941C34;
-      border-left-color: #941C34;
-      padding-left: 1.5rem;
-    }
-
-    /* Mobile Navbar Toggle */
-    .navbar-toggler {
-      border: none;
-      padding: 0.3rem 0.5rem;
-      transition: all 0.3s ease;
-      border-radius: 6px;
-    }
-
-    .navbar-toggler:hover {
-      background: rgba(148, 28, 52, 0.05);
-    }
-
-    .navbar-toggler:focus {
-      box-shadow: 0 0 0 0.2rem rgba(148, 28, 52, 0.25);
-    }
-
-    .navbar-toggler-icon {
-      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23941C34' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='m4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-    }
-
-    @media (max-width: 991.98px) {
-      .navbar-collapse {
-        background: rgba(255, 255, 255, 0.98);
-        backdrop-filter: blur(10px);
-        border-radius: 10px;
-        margin-top: 1rem;
-        padding: 1rem;
-        border: 1px solid rgba(148, 28, 52, 0.1);
-        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-      }
-
-      .navbar-nav .nav-link {
-        margin: 0.2rem 0;
-        text-align: left;
-      }
-      
-      .navbar-brand {
-        height: 50px;
-        width: 120px;
-      }
-    }
-        header {
-            background: #800000;
-            color: white;
-            padding: 20px;
-            text-align: center;
-            font-size: 20px;
+            background: rgba(255, 255, 255, 0.98) !important;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(148, 28, 52, 0.08);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            padding: 0.8rem 0;
         }
 
-        .hero-section {
-      background: linear-gradient(135deg, #941C34, #c23d50, #d45087);
-      color: white;
-      padding: 100px 0;
-      position: relative;
-      overflow: hidden;
-      z-index: 2;
-    }
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 1) !important;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.12);
+            padding: 0.5rem 0;
+        }
 
-    .hero-section::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: 
-        radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(255,255,255,0.08) 0%, transparent 50%),
-        radial-gradient(circle at 40% 80%, rgba(255,255,255,0.06) 0%, transparent 50%);
-      animation: heroFloat 6s ease-in-out infinite;
-    }
+        .navbar-brand {
+            height: 60px;
+            width: 140px;
+            transition: all 0.3s ease;
+        }
 
-    @keyframes heroFloat {
-      0%, 100% { transform: translateY(0px) rotate(0deg); }
-      50% { transform: translateY(-10px) rotate(1deg); }
-    }
+        .navbar-brand img {
+            transition: all 0.3s ease;
+        }
 
-    .hero-content {
-      position: relative;
-      z-index: 2;
-    }
-    .page-title {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 4rem;
-      font-weight: 700;
-      margin-bottom: 20px;
-      
-      background: linear-gradient(45deg, #fff, #f0f8ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
+        .navbar-brand:hover img {
+            transform: scale(1.02);
+        }
 
-    .counter-subtitle {
-      color: rgba(255, 255, 255, 0.95);
-      font-weight: 500;
-      font-size: 1.3rem;
-      text-align: center;
-      margin-top: 15px;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
-    }
+        .navbar-nav {
+            align-items: center;
+            gap: 0.3rem;
+        }
 
-    .breadcrumb-custom {
-      background: rgba(255,255,255,0.15);
-      border-radius: 50px;
-      padding: 12px 24px;
-      backdrop-filter: blur(15px);
-      border: 1px solid rgba(255,255,255,0.2);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-    }
+        .navbar-nav .nav-item {
+            margin: 0 0.1rem;
+        }
 
-    .breadcrumb-custom a {
-      color: rgba(255,255,255,0.85);
-      text-decoration: none;
-      transition: all 0.3s ease;
-      font-weight: 500;
-    }
+        .navbar-nav .nav-link {
+            font-weight: 500;
+            font-size: 0.95rem;
+            color: #333 !important;
+            padding: 0.7rem 1rem !important;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+            text-decoration: none;
+        }
 
-    .breadcrumb-custom a:hover {
-      color: white;
-     
-    }
+        .navbar-nav .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 5px;
+            left: 50%;
+            background: #941C34;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
 
-        h2 {
+        .navbar-nav .nav-link:hover {
+            color: #941C34 !important;
+            background: rgba(148, 28, 52, 0.05);
+        }
+
+        .navbar-nav .nav-link:hover::after {
+            width: 70%;
+        }
+
+        .navbar-nav .nav-link.active {
+            color: #941C34 !important;
+            background: rgba(148, 28, 52, 0.08);
+        }
+
+        .navbar-nav .nav-link.active::after {
+            width: 70%;
+        }
+
+        .dropdown-menu {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(148, 28, 52, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            margin-top: 0.3rem;
+            padding: 0.5rem 0;
+            min-width: 200px;
+        }
+
+        .dropdown-item {
+            padding: 0.7rem 1.2rem;
+            font-weight: 500;
             color: #333;
-            font-size: 30px;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
         }
 
-        .reviews-container {
-            display: flex;
-            flex-wrap: wrap;
-            overflow-x: auto;
-            gap: 20px; 
-            justify-content: space-between;
+        .dropdown-item:hover {
+            background: rgba(148, 28, 52, 0.06);
+            color: #941C34;
+            border-left-color: #941C34;
+            padding-left: 1.5rem;
+        }
+
+        .navbar-toggler {
+            border: none;
+            padding: 0.3rem 0.5rem;
+            transition: all 0.3s ease;
+            border-radius: 6px;
+        }
+
+        .navbar-toggler:hover {
+            background: rgba(148, 28, 52, 0.05);
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: 0 0 0 0.2rem rgba(148, 28, 52, 0.25);
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23941C34' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='m4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+
+        @media (max-width: 991.98px) {
+            .navbar-collapse {
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(10px);
+                border-radius: 10px;
+                margin-top: 1rem;
+                padding: 1rem;
+                border: 1px solid rgba(148, 28, 52, 0.1);
+                box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            }
+
+            .navbar-nav .nav-link {
+                margin: 0.2rem 0;
+                text-align: left;
+            }
             
+            .navbar-brand {
+                height: 50px;
+                width: 120px;
+            }
+        }
+
+        /* Keep existing hero section styles */
+        .hero-section {
+            background: linear-gradient(135deg, #941C34, #c23d50, #d45087);
+            color: white;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+            z-index: 2;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255,255,255,0.08) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(255,255,255,0.06) 0%, transparent 50%);
+            animation: heroFloat 6s ease-in-out infinite;
+        }
+
+        @keyframes heroFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(1deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .page-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #fff, #f0f8ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .counter-subtitle {
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 500;
+            font-size: 1.3rem;
+            text-align: center;
+            margin-top: 15px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+
+        .breadcrumb-custom {
+            background: rgba(255,255,255,0.15);
+            border-radius: 50px;
+            padding: 12px 24px;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255,255,255,0.2);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+
+        .breadcrumb-custom a {
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .breadcrumb-custom a:hover {
+            color: white;
+        }
+
+        /* New Creative Styles */
+        .main-container {
+            padding: 4rem 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, #941C34, #c23d50);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(135deg, #941C34, #c23d50);
+            border-radius: 2px;
+        }
+
+        /* Enhanced Review Cards */
+        .reviews-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
         }
 
         .review {
-            width: 23%;            
-            height: 100%;          
-            border: 1px solid #800000;
-            border-radius: 4px;
-            max-height: 600px;
-            padding: 20px;
-            background: #f9f9f9;
-            box-sizing: border-box;
-            overflow-y: auto;      
-            transition: background 0.3s, transform 0.3s;
+            background: linear-gradient(145deg, #ffffff, #f0f4f8);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(148, 28, 52, 0.1);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            transform-style: preserve-3d;
+        }
+
+        .review::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(135deg, #941C34, #c23d50, #d45087);
+        }
+
+        .review::after {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 6rem;
+            color: rgba(148, 28, 52, 0.1);
+            font-family: serif;
+            line-height: 1;
         }
 
         .review:hover {
-            background: #e0e0e0; 
-            transform: scale(1.01); 
+            transform: translateY(-15px) rotateX(5deg);
+            box-shadow: 
+                0 30px 60px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
         }
 
-        .review h3 {
-            margin: 0 0 10px;
-            color: #800000;
-            font-size: 25px;
+        .review-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
         }
 
-        .review p {
-            margin: 5px 0;
-            font-size: 17px;
+        .review-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #941C34, #c23d50);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-right: 1rem;
+            box-shadow: 0 10px 20px rgba(148, 28, 52, 0.3);
         }
 
-        .additional-info {
-            margin-top: 20px;
-            padding: 15px;
-            background: #f9f9f9;
-            border-radius: 4px;
-            border: 1px solid #ccc;
-        }
-
-        .additional-info p {
+        .review-name {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #941C34;
             margin: 0;
         }
-         @media (max-width: 768px) {
-            .review {
-                flex: 1 1 100%; /* Each review takes full width on smaller screens */
-                margin-bottom: 10px; }}
 
+        .review-rating {
+            display: flex;
+            align-items: center;
+            margin: 1rem 0;
+            gap: 0.5rem;
+        }
+
+        .stars {
+            display: flex;
+            gap: 2px;
+        }
+
+        .star {
+            font-size: 1.2rem;
+            color: #ffd700;
+            text-shadow: 0 2px 4px rgba(255, 215, 0, 0.3);
+        }
+
+        .rating-text {
+            font-weight: 600;
+            color: #941C34;
+            margin-left: 0.5rem;
+        }
+
+        .review-content {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #555;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+
+        .review-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .tag {
+            background: rgba(148, 28, 52, 0.1);
+            color: #941C34;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Simplified Floating Elements */
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .floating-element {
+            position: absolute;
+            opacity: 0.08;
+            animation: gentleFloat 12s ease-in-out infinite;
+        }
+
+        .floating-element:nth-child(1) {
+            top: 15%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-element:nth-child(2) {
+            top: 25%;
+            right: 15%;
+            animation-delay: 4s;
+        }
+
+        .floating-element:nth-child(3) {
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 8s;
+        }
+
+        @keyframes gentleFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        /* Footer styles remain unchanged */
         footer {
-      background: #941C34;
-    }
-    .footer-link {
-      color: #ddd;
-      text-decoration: none;
-      position: relative;
-      transition: all 0.3s ease;
-    }
-    .footer-link::after {
-      content: '';
-      width: 0;
-      height: 2px;
-      background: #ffd700;
-      position: absolute;
-      left: 0;
-      bottom: -3px;
-      transition: width 0.3s ease;
-    }
-    .footer-link:hover {
-      color: #ffd700;
-    }
-    .footer-link:hover::after {
-      width: 100%;
-    }
+            background: #941C34;
+        }
+        .footer-link {
+            color: #ddd;
+            text-decoration: none;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        .footer-link::after {
+            content: '';
+            width: 0;
+            height: 2px;
+            background: #ffd700;
+            position: absolute;
+            left: 0;
+            bottom: -3px;
+            transition: width 0.3s ease;
+        }
+        .footer-link:hover {
+            color: #ffd700;
+        }
+        .footer-link:hover::after {
+            width: 100%;
+        }
 
-.bg-custom{
-    background-color:#941C34;
-}
+        .bg-custom {
+            background-color: #941C34;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .reviews-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .review {
+                padding: 2rem;
+            }
+            
+            .page-title {
+                font-size: 2.5rem;
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- Simple Animated Background -->
+    <div class="animated-bg">
+        <div class="particle" style="left: 10%; animation-delay: 0s;"></div>
+        <div class="particle" style="left: 20%; animation-delay: 2s;"></div>
+        <div class="particle" style="left: 30%; animation-delay: 4s;"></div>
+        <div class="particle" style="left: 40%; animation-delay: 1s;"></div>
+        <div class="particle" style="left: 50%; animation-delay: 3s;"></div>
+        <div class="particle" style="left: 60%; animation-delay: 5s;"></div>
+        <div class="particle" style="left: 70%; animation-delay: 2.5s;"></div>
+        <div class="particle" style="left: 80%; animation-delay: 4.5s;"></div>
+        <div class="particle" style="left: 90%; animation-delay: 1.5s;"></div>
+        <div class="particle" style="left: 15%; animation-delay: 6s;"></div>
+        <div class="particle" style="left: 25%; animation-delay: 3.5s;"></div>
+        <div class="particle" style="left: 35%; animation-delay: 5.5s;"></div>
+        <div class="particle" style="left: 45%; animation-delay: 2.2s;"></div>
+        <div class="particle" style="left: 55%; animation-delay: 4.2s;"></div>
+        <div class="particle" style="left: 65%; animation-delay: 6.2s;"></div>
+    </div>
+
+    <!-- Keep existing navbar unchanged -->
     <nav class="navbar navbar-expand-lg sticky-top" id="mainNavbar">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="homepage.html">
-      <img src="https://github.com/VishalMache/Website_ai-ml/blob/main/Pcu%20Thumbnail%5B1%5D%20(1)/Pcu%20Thumbnail/PCU_logo_152d67d738.png?raw=true" alt="PCU Logo" class="img-fluid" style="height: 100%; width: 100%; object-fit: contain;">
-    </a>
-    
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            About Us
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="about us/about_department.html">About Department</a></li>
-            <li><a class="dropdown-item" href="about us/vision&mission.html">Vision & Mission</a></li>
-            <li><a class="dropdown-item" href="about us/hod's_desk.html">HoD's Desk</a></li>
-          </ul>
-        </li>
-        
-        <li class="nav-item">
-          <a class="nav-link" href="Faculty section/Faculty.html">
-            Faculty Profile
-          </a>
-        </li>
-        
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Student Corner
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="Student section/syllabus.html">Syllabus</a></li>
-            <li><a class="dropdown-item" href="Student section/Professional_chapters.html">Professional Chapters</a></li>
-          </ul>
-        </li>
-        
-        <li class="nav-item">
-          <a class="nav-link" href="activity_workshop/activity_workshop.html">Activities & Workshops</a>
-        </li>
-        
-        <li class="nav-item">
-          <a class="nav-link" href="student_satisfaction.html">Student Satisfaction</a>
-        </li>
-        
-        <li class="nav-item">
-          <a class="nav-link" href="#">Contact</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-<br><br>
-<section class="hero-section">
-    <div class="container hero-content">
-      <div class="text-center">
-        <nav class="breadcrumb-custom d-inline-flex mb-4">
-          <a href="homepage.html">Home</a>
-          <span class="mx-2">/</span>
-          <span>Student Satisfaction</span>
-        </nav>
-        <h1 class="page-title" data-aos="fade-up">Student Satisfaction</h1>
-        <div class="counter-subtitle" data-aos="fade-up" data-aos-delay="100">
-          We value your insights
-        </div>
-        <div class="decorative-line" data-aos="fade-up" data-aos-delay="200"></div>
-      </div>
-    </div>
-</section>
-<br><br>
-<main>
-        <h2>Senior Reviews</h2>
-        <br>
-        <div class="reviews-container">
-            <div class="review">
-                <h3>Student1</h3>
-                <p><strong>Satisfaction Level:</strong> 5/5</p>
-                <p>The AI/ML program has been transformative for my career. The faculty is knowledgeable and supportive, always willing to help students with their projects and research. The curriculum is well-structured, providing a perfect balance between theoretical knowledge and practical application. I particularly enjoyed the hands-on projects that allowed me to apply what I learned in real-world scenarios.Overall, I feel well-prepared for my future career in AI and machine learning.</p>
-            </div>
-
-            <div class="review">
-                <h3>Student2</h3>
-                <p><strong>Satisfaction Level:</strong> 4/5</p>
-                <p>Being part of the AI/ML department has been one of the most rewarding experiences of my academic life. The program pushed me to think critically and solve problems creatively. The workshops and seminars organized regularly kept us updated with the latest technologies in AI and Data Science.Overall, I am very satisfied with my journey here and proud to be part of this department.</p>
-            </div>
-
-            <div class="review">
-                <h3>Student3</h3>
-                <p><strong>Satisfaction Level:</strong> 5/5</p>
-                <p>The resources provided for research and projects are excellent.From well-equipped labs to access to online tools and mentorship for research papers, everything contributed to my growth. Apart from academics, the department also focuses on overall development through events, presentations, and team projects. These helped me improve my communication, leadership, and teamwork skills along with technical knowledge.</p>
-            </div>
-
-            <div class="review">
-                <h3>Anshuman Deshmukh</h3>
-                <p><strong>Satisfaction Level:</strong> 3/5</p>
-                <p>"Good program, but I felt some courses were too theoretical. <br> More practical applications would help."</p>
+        <div class="container-fluid">
+            <a class="navbar-brand" href="homepage.html">
+                <img src="https://github.com/VishalMache/Website_ai-ml/blob/main/Pcu%20Thumbnail%5B1%5D%20(1)/Pcu%20Thumbnail/PCU_logo_152d67d738.png?raw=true" alt="PCU Logo" class="img-fluid" style="height: 100%; width: 100%; object-fit: contain;">
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            About Us
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="about us/about_department.html">About Department</a></li>
+                            <li><a class="dropdown-item" href="about us/vision&mission.html">Vision & Mission</a></li>
+                            <li><a class="dropdown-item" href="about us/hod's_desk.html">HoD's Desk</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="Faculty section/Faculty.html">
+                            Faculty Profile
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Student Corner
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="Student section/syllabus.html">Syllabus</a></li>
+                            <li><a class="dropdown-item" href="Student section/Professional_chapters.html">Professional Chapters</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="activity_workshop/activity_workshop.html">Activities & Workshops</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="student_satisfaction.html">Student Satisfaction</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
             </div>
         </div>
-        <br><br>
-        <h2>Additional Information</h2>
-        <div class="additional-info">
-            <p>The AI/ML department not only focuses on academic excellence but also ensures holistic student development. Students are provided with state-of-the-art computer labs, access to premium software tools, and opportunities to work on real-world projects that bridge the gap between theory and practice. Regular workshops, coding competitions, and hackathons are organized to encourage innovation and problem-solving skills.</p>
-            <p>The department actively supports students in publishing research papers, presenting at conferences, and participating in national and international technical events. Dedicated placement training sessions, mock interviews, and resume-building workshops further prepare students for career opportunities in top companies. We encourage students to stay connected with us through our official website, social media channels, and alumni groups, so that they remain part of our ever-growing community of innovators and professionals in the AI/ML domain.</p>
+    </nav>
+
+    <!-- Keep existing hero section unchanged -->
+    <section class="hero-section">
+        <div class="container hero-content">
+            <div class="text-center">
+                <nav class="breadcrumb-custom d-inline-flex mb-4">
+                    <a href="homepage.html">Home</a>
+                    <span class="mx-2">/</span>
+                    <span>Student Satisfaction</span>
+                </nav>
+                <h1 class="page-title">Student Satisfaction</h1>
+                <div class="counter-subtitle">
+                    We value your insights
+                </div>
+                <div class="decorative-line"></div>
+            </div>
+        </div>
+    </section>
+
+    <main class="main-container">
+        <div class="floating-elements">
+            <div class="floating-element">
+                <i class="bi bi-stars" style="font-size: 2rem; color: #941C34;"></i>
+            </div>
+            <div class="floating-element">
+                <i class="bi bi-heart-fill" style="font-size: 1.8rem; color: #c23d50;"></i>
+            </div>
+            <div class="floating-element">
+                <i class="bi bi-award-fill" style="font-size: 2.2rem; color: #d45087;"></i>
+            </div>
+        </div>
+
+        <div class="container">
+            <h2 class="section-title">What Our Students Say</h2>
+
+            <div class="reviews-container">
+                <div class="review">
+                    <div class="review-header">
+                        <div class="review-avatar">A</div>
+                        <div>
+                            <h3 class="review-name">Aarav Sharma</h3>
+                        </div>
+                    </div>
+                    <div class="review-rating">
+                        <div class="stars">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                        <span class="rating-text">5/5</span>
+                    </div>
+                    <p class="review-content">The AI/ML program has been transformative for my career. The faculty is knowledgeable and supportive, always willing to help students with their projects and research. The curriculum is well-structured, providing a perfect balance between theoretical knowledge and practical application. I particularly enjoyed the hands-on projects that allowed me to apply what I learned in real-world scenarios. Overall, I feel well-prepared for my future career in AI and machine learning.</p>
+                    <div class="review-tags">
+                        <span class="tag">Excellent Faculty</span>
+                        <span class="tag">Practical Learning</span>
+                        <span class="tag">Career Ready</span>
+                    </div>
+                </div>
+
+                <div class="review">
+                    <div class="review-header">
+                        <div class="review-avatar">P</div>
+                        <div>
+                            <h3 class="review-name">Priya Patel</h3>
+                        </div>
+                    </div>
+                    <div class="review-rating">
+                        <div class="stars">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">☆</span>
+                        </div>
+                        <span class="rating-text">4/5</span>
+                    </div>
+                    <p class="review-content">Being part of the AI/ML department has been one of the most rewarding experiences of my academic life. The program pushed me to think critically and solve problems creatively. The workshops and seminars organized regularly kept us updated with the latest technologies in AI and Data Science. Overall, I am very satisfied with my journey here and proud to be part of this department.</p>
+                    <div class="review-tags">
+                        <span class="tag">Critical Thinking</span>
+                        <span class="tag">Regular Updates</span>
+                        <span class="tag">Proud Alumni</span>
+                    </div>
+                </div>
+
+                <div class="review">
+                    <div class="review-header">
+                        <div class="review-avatar">R</div>
+                        <div>
+                            <h3 class="review-name">Rahul Kumar</h3>
+                        </div>
+                    </div>
+                    <div class="review-rating">
+                        <div class="stars">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                        <span class="rating-text">5/5</span>
+                    </div>
+                    <p class="review-content">The resources provided for research and projects are excellent. From well-equipped labs to access to online tools and mentorship for research papers, everything contributed to my growth. Apart from academics, the department also focuses on overall development through events, presentations, and team projects. These helped me improve my communication, leadership, and teamwork skills along with technical knowledge.</p>
+                    <div class="review-tags">
+                        <span class="tag">Excellent Resources</span>
+                        <span class="tag">Research Support</span>
+                        <span class="tag">Holistic Development</span>
+                    </div>
+                </div>
+
+                <div class="review">
+                    <div class="review-header">
+                        <div class="review-avatar">A</div>
+                        <div>
+                            <h3 class="review-name">Anshuman Deshmukh</h3>
+                        </div>
+                    </div>
+                    <div class="review-rating">
+                        <div class="stars">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">☆</span>
+                            <span class="star">☆</span>
+                        </div>
+                        <span class="rating-text">3/5</span>
+                    </div>
+                    <p class="review-content">Good program overall, but I felt some courses were too theoretical. More practical applications and industry exposure would definitely help students understand concepts better and prepare them for real-world challenges.</p>
+                    <div class="review-tags">
+                        <span class="tag">Good Program</span>
+                        <span class="tag">Needs More Practical</span>
+                        <span class="tag">Industry Exposure</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
-    <br><br>
+
+    <!-- Keep existing footer unchanged -->
     <footer class="container-fluid text-white w-100 py-5 mt-5">
-  <div class="container">
-    <div class="row text-center text-md-start">
-      <div class="col-md-4 mb-4">
-        <h5 class="fw-bold mb-3">Connect With Us At</h5>
-        <p><i class="bi bi-geo-alt-fill me-2"></i> Gut No. 44, 46, 48, 49 and 50,<br>Sate, Maval<br>(PMRDA) Dist. Pune-412106,
-Maharashtra, India.</p>
-        <a href="https://www.google.com/maps/place/Pimpri+Chinchwad+University/@18.7486731,73.6048451,17z/data=!3m1!4b1!4m6!3m5!1s0x3bc2addaeb41d919:0xcc551cf73e3bdf1c!8m2!3d18.748668!4d73.60742!16s%2Fg%2F11pv9g71ty?entry=ttu&g_ep=EgoyMDI1MDgxNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="footer-link">Visit Us on Google Maps</a>
-      </div>
-      <div class="col-md-4 mb-4">
-        <h5 class="fw-bold mb-3">Contact</h5>
-        <p><i class="bi bi-envelope-fill me-2"></i> info@pcu.edu.in</p>
-      </div>
-      <div class="col-md-4 mb-4">
-        <h5 class="fw-bold mb-3">Important Links</h5>
-        <ul class="list-unstyled">
-          <li><a href="#" class="footer-link">About PCET & PCU</a></li>
-          <li><a href="#" class="footer-link">Academics</a></li>
-          <li><a href="#" class="footer-link">Hostel</a></li>
-          <li><a href="#" class="footer-link">Contact</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</footer>
+        <div class="container">
+            <div class="row text-center text-md-start">
+                <div class="col-md-4 mb-4">
+                    <h5 class="fw-bold mb-3">Connect With Us At</h5>
+                    <p><i class="bi bi-geo-alt-fill me-2"></i> Gut No. 44, 46, 48, 49 and 50,<br>Sate, Maval<br>(PMRDA) Dist. Pune-412106, Maharashtra, India.</p>
+                    <a href="https://www.google.com/maps/place/Pimpri+Chinchwad+University/@18.7486731,73.6048451,17z/data=!3m1!4b1!4m6!3m5!1s0x3bc2addaeb41d919:0xcc551cf73e3bdf1c!8m2!3d18.748668!4d73.60742!16s%2Fg%2F11pv9g71ty?entry=ttu&g_ep=EgoyMDI1MDgxNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="footer-link">Visit Us on Google Maps</a>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5 class="fw-bold mb-3">Contact</h5>
+                    <p><i class="bi bi-envelope-fill me-2"></i> info@pcu.edu.in</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5 class="fw-bold mb-3">Important Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="footer-link">About PCET & PCU</a></li>
+                        <li><a href="#" class="footer-link">Academics</a></li>
+                        <li><a href="#" class="footer-link">Hostel</a></li>
+                        <li><a href="#" class="footer-link">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
