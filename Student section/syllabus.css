@@ -1,10 +1,9 @@
-/* Custom Styling for Syllabus Page */
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+ body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
 
 
-/* Clean Navbar Styles */
+    /* Clean Navbar Styles */
     .navbar {
       background: rgba(255, 255, 255, 0.98) !important;
       backdrop-filter: blur(10px);
@@ -153,12 +152,7 @@ body {
       }
     }
 
-h2 {
-  color: white;
-  font-weight: bold;
-}
-
-.hero-section {
+    .hero-section {
       background: linear-gradient(135deg, #941C34, #c23d50, #d45087);
       color: white;
       padding: 100px 0;
@@ -203,15 +197,6 @@ h2 {
       background-clip: text;
     }
 
-    .counter-subtitle {
-      color: rgba(255, 255, 255, 0.95);
-      font-weight: 500;
-      font-size: 1.3rem;
-      text-align: center;
-      margin-top: 15px;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
-    }
-
     .breadcrumb-custom {
       background: rgba(255,255,255,0.15);
       border-radius: 50px;
@@ -221,7 +206,7 @@ h2 {
       box-shadow: 0 8px 32px rgba(0,0,0,0.1);
     }
 
-    .breadcrumb-custom a {
+    .breadcrumb-custom a, .breadcrumb-custom span {
       color: rgba(255,255,255,0.85);
       text-decoration: none;
       transition: all 0.3s ease;
@@ -230,51 +215,64 @@ h2 {
 
     .breadcrumb-custom a:hover {
       color: white;
-     
     }
 
-.accordion-button {
-  font-weight: 600;
-}
+    .syllabus-card {
+      background: #f8f9fa;
+      border: 1px solid #e9ecef;
+      border-radius: 12px;
+      padding: 40px;
+      margin-bottom: 30px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
 
+    .syllabus-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+    }
 
-.btn-primary {
-  background-color: #941c34;
-  border-color: #941c34;
-}
+    .syllabus-icon {
+      font-size: 3rem;
+      color: #941C34;
+      margin-bottom: 20px;
+    }
 
-.btn-primary:hover,
-.btn-primary:focus,
-.btn-primary:active,
-.btn-primary.active,
-.show > .btn-primary.dropdown-toggle {
-  background-color: #6e151f;
-  border-color: #6e151f;
-}
-.accordion-button {
-  border-bottom: 2px solid transparent; /* Default hidden */
-  box-shadow: none;
-}
+    .syllabus-title {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 15px;
+    }
 
-.accordion-button:focus,
-.accordion-button:hover {
-  border-color: #941c34;
-  box-shadow: 0 2px 0 0 #941c34 inset;
-  outline: none;
-}
+    .syllabus-description {
+      color: #666;
+      font-size: 1rem;
+      margin-bottom: 25px;
+    }
 
-.accordion-button:not(.collapsed) {
-  color: #941c34;
-  background-color: rgba(148, 28, 52, 0.2);      /* or any bg you wish */
-  border-color: #941c34;
-  box-shadow: 0 2px 0 0 #941c34 inset;
-}
+    .btn-primary {
+      background-color: #941C34;
+      border-color: #941C34;
+      font-weight: 600;
+      padding: 10px 25px;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+    }
 
-.accordion-button:after {
-  background-image: none !important;
-}
-
-footer {
+    .btn-primary:hover,
+    .btn-primary:focus {
+      background-color: #6e151f;
+      border-color: #6e151f;
+      transform: translateY(-2px);
+    }
+    
+    footer {
       background: #941C34;
     }
     .footer-link {
